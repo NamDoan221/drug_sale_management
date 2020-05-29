@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nhà thuốc</title>
+    <title>Nhà thuốc 24h</title>
     <link rel="stylesheet" href="./drugstore.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -32,15 +32,15 @@
                     <a class="nav-link" href="../home_cpn/index.html">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-cart-plus"
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" onclick="renderCart()"><i class="fa fa-cart-plus"
                             style="margin-right: 5px;"></i>CART</a>
                 </li>
             </ul>
             </ul>
-            <form class="form-inline my-2 my-lg-0 mr-5">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <div class="form-inline my-2 my-lg-0 mr-5">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
+                <button class="btn btn-outline-light my-2 my-sm-0" onclick="searchProduct()">Search</button>
+            </div>
         </div>
     </nav>
     <div class="container">
@@ -58,7 +58,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="cart_item">
 
                 </div>
                 <div class="modal-footer">
