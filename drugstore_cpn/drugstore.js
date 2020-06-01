@@ -1,6 +1,5 @@
 var products = [];
-var products_cart = JSON.parse(localStorage.getItem('cart'));
-
+var carts = JSON.parse(localStorage.getItem('cart'));
 function renderProduct(data) {
     data.forEach((product) => {
         document.getElementById('products_list').innerHTML += `
@@ -17,6 +16,7 @@ function renderProduct(data) {
                 </div>
             </div>`;
     });
+    loadMessCart();
 }
 
 (async function getProducts() {
@@ -38,33 +38,56 @@ function handleErr(err) {
     return resp;
 }
 
+function loadMessCart() {
+    if (!carts || carts.length === 0) {
+        return document.getElementById('cart_mess').style.display = 'none';
+    }
+    document.getElementById('cart_mess').style.display = 'inline-block';
+}
+
 function addToCart(product_name) {
     products.forEach(product => {
         if (product.name === product_name) {
-            if (!products_cart) {
-                products_cart = [];
-                products_cart.push(product);
+            if (!carts) {
+                carts = [];
+                carts.push(product);
             } else {
-                products_cart.push(product);
+                carts.push(product);
             }
         }
     });
-    localStorage.setItem('cart', JSON.stringify(products_cart));
+    localStorage.setItem('cart', JSON.stringify(carts));
+    loadMessCart();
 }
 
 
 function renderCart() {
-    let carts = JSON.parse(localStorage.getItem('cart'));
     let total_bill = 0;
-    if (!carts) {
+    if (!carts || carts.length === 0) {
+        document.getElementById('total_bill').innerHTML = `${total_bill}$`;
         return document.getElementById('cart_item').innerHTML = `<p class="card-text">Không có sản phẩm nào!</p>`;
     }
     document.getElementById('cart_item').innerHTML = '';
     carts.forEach((item) => {
-        document.getElementById('cart_item').innerHTML += `<p class="card-text">${item.name}</p>`;
+        document.getElementById('cart_item').innerHTML +=
+            `<div class="modal-footer">
+                <span class="card-text">${item.name}</span>
+                <button type="button" class="btn btn-primary ml-auto" onclick="deleteFromCart('${item.name}')">Xóa</button>
+            </div>`;
         total_bill += item.price;
     });
-    console.log('total_bill', total_bill);
+    document.getElementById('total_bill').innerHTML = `${total_bill}$`;
+}
+
+function deleteFromCart(product_name) {
+    carts.forEach( (product,i) => {
+        if(product.name === product_name) {
+            carts.splice(i, 1);
+        }
+    });
+    localStorage.setItem('cart', JSON.stringify(carts));
+    renderCart();
+    loadMessCart();
 }
 
 function removeAccents(str) {

@@ -33,7 +33,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" onclick="renderCart()"><i class="fa fa-cart-plus"
-                            style="margin-right: 5px;"></i>CART</a>
+                            style="margin-right: 5px;"><i class="fas fa-circle" id="cart_mess"></i></i></a>
                 </li>
             </ul>
             </ul>
@@ -62,7 +62,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <span class="mr-auto">Tổng cộng: <span id="total_bill"></span></span>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                     <button type="button" class="btn btn-primary">Thanh toán</button>
                 </div>
             </div>

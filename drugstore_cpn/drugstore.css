@@ -35,7 +35,13 @@
 .navbar-nav .nav-item {
     height: 51.5px;
 }
-
+.navbar-nav .nav-item #cart_mess {
+    font-size: 10px;
+    color: #f4511e;
+    position: relative;
+    bottom: 10px;
+    right: 5px;
+}
 .navbar-nav .nav-item .nav-link {
     height: 100%;
     display: flex;
