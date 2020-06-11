@@ -1,8 +1,8 @@
 var users = [
-    { img: 'https://img2.thuthuatphanmem.vn/uploads/2019/01/04/anh-co-gai-de-thuong_025058983.jpg', phoneNumber: 'phihuulong', password: 'long13032000' },
-    { img: 'https://img2.thuthuatphanmem.vn/uploads/2019/01/04/anh-co-gai-dep_025059051.png', phoneNumber: 'nguyenkhacmanh', password: 'manh08042000' },
-    { img: 'https://img2.thuthuatphanmem.vn/uploads/2019/01/04/anh-gai-dep-de-thuong-nhat_025059380.jpg', phoneNumber: 'doanvannam', password: 'nam22012000' },
-    { img: 'https://img2.thuthuatphanmem.vn/uploads/2019/01/04/anh-gai-dep-facebook_025059430.jpg', phoneNumber: 'nambaby', password: 'nam2212000' }];
+    { img: 'https://thuthuatnhanh.com/wp-content/uploads/2019/08/anh-girl-deo-kinh-xinh-dep-580x580.jpg', phoneNumber: 'phihuulong', password: 'long13032000' },
+    { img: 'https://thuthuatnhanh.com/wp-content/uploads/2019/08/anh-gai-xinh-deo-kinh-nhu-thien-than-580x580.jpg', phoneNumber: 'nguyenkhacmanh', password: 'manh08042000' },
+    { img: 'https://thuthuatnhanh.com/wp-content/uploads/2019/08/anh-con-gai-deo-kinh-de-thuong-580x580.jpg', phoneNumber: 'doanvannam', password: 'nam22012000' },
+    { img: 'https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-my-nhan-trung-quoc-326x580.jpg', phoneNumber: 'nambaby', password: 'nam2212000' }];
 
 function onLogin() {
     var isUser = {
@@ -38,7 +38,7 @@ function onLogin() {
 }
 
 function onLoad() {
-    if (JSON.parse(localStorage.getItem('loginStatus')).status) {
+    if (JSON.parse(localStorage.getItem('loginStatus'))) {
         return window.location.href = "../drugstore_cpn/drugstore.html";
 
     }

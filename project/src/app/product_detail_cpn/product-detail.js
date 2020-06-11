@@ -19,9 +19,9 @@ let modal = document.querySelector(".modal");
                 </div>
                 <div class="product-content">
                     <div class="product-perform">
-                        <h5 class="card-title">${product.name}</h5>
-                        <p class="card-text card-description">${product.description}</p>
-                        <p class="card-text text-danger">${product.price} vnd</p>
+                        <h2 class="title">${product.name}</h2>
+                        <p class="text-description">${product.description}</p>
+                        <p class="text-price">${formatNumber(product.price, ".", ",")} vnd</p>
                     </div>
                     <div class="product-action">
                         <button type="button" class="btn btn-info" onclick="addToCart('${product.id}')">Add to cart</button>
@@ -42,6 +42,18 @@ function loadMessCart() {
     document.getElementById("cart_mess").style.display = "inline-block";
 }
 
+function formatNumber(nStr, decSeperate, groupSeperate) {
+    nStr += '';
+    x = nStr.split(decSeperate);
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + groupSeperate + '$2');
+    }
+    return x1 + x2;
+}
+
 function renderCart() {
     modal.style.display = "block";
     let total_bill = 0;
@@ -51,21 +63,21 @@ function renderCart() {
     }
     document.getElementById("cart_item").innerHTML = "";
     carts.forEach((item) => {
-        document.getElementById("cart_item").innerHTML += `<div class="modal-footer" style="display: flex;align-items: center;">
-            <img src="${item.image}" id="card-img" style="width:100px;height:70px;border-radius:5px;" />
-            <span class="card-text ml-3" style="font-size:16px;width:300px">${item.name}</span>
-            <span class="card-text" style="margin:0 auto">đ${item.price}</span>
-            <div class="btn-group mr-2" role="group" aria-label="First group" style="background-color:#fff">
-                <button type="button" class="btn btn-secondary" style="background-color:#fff;color:#000;border-color: #ddd;" onclick="countMinus('${item.id}')">-</button>
-                <button type="button" class="btn btn-secondary" style="background-color:#fff;color:#000;border-color: #ddd;">${item.amount}</button>
-                <button type="button" class="btn btn-secondary" style="background-color:#fff;color:#000;border-color: #ddd;" onclick="countAdd('${item.id}')">+</button>
+        document.getElementById("cart_item").innerHTML += `<div class="item">
+            <img src="${item.image}" class="item-img" />
+            <span class="item-name">${item.name}</span>
+            <span class="item-price">${formatNumber(item.price, '.', ',')}đ</span>
+            <div class="btn-group" role="group" aria-label="First group" style="background-color:#fff">
+                <button type="button" class="btn-item" onclick="countMinus('${item.id}')">-</button>
+                <button type="button" class="btn-item" >${item.amount}</button>
+                <button type="button" class="btn-item" onclick="countAdd('${item.id}')">+</button>
             </div>
-            <span class="card-text" style="color:red;margin:0px 40px">đ${item.price * item.amount}</span>
-            <button type="button" class="btn btn-primary ml-auto" onclick="deleteFromCart('${item.id}')">Xóa</button>
+            <span class="item-total">${formatNumber((item.price * item.amount), '.', ',')}đ</span>
+            <button type="button" class="btn-action" onclick="deleteFromCart('${item.id}')">Xóa</button>
         </div>`;
         total_bill += item.price * item.amount;
     });
-    document.getElementById("total_bill").innerHTML = `${total_bill}$`;
+    document.getElementById("total_bill").innerHTML = `${formatNumber(total_bill, '.', ',')}đ`;
 }
 
 function goToStore() {

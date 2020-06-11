@@ -12,48 +12,45 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <a class="navbar-brand" href="../home_cpn/index.html" style="padding: 0px 0px 1px 15%;display: flex;">
+    <header>
+        <a class="navbar-brand" href="../home_cpn/index.html">
             <img src="https://thumbs.dreamstime.com/t/go-green-world-illustration-design-75249190.jpg"
                 alt="nhathuoc24h.com" width="80px" height="50px">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars text-white"></i>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <nav>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="../home_cpn/index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../drugstore_cpn/drugstore.html">Store Online</a>
+                    <a class="nav-link" href="../drugstore_cpn/drugstore.html">StoreOnline</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" onclick="renderCart()"><i class="fa fa-cart-plus"
-                            style="margin-right: 5px;"><i class="fas fa-circle" id="cart_mess"></i></i></a>
+                    <a class="nav-link" onclick="renderCart()">
+                        <i class="fa fa-cart-plus" style="margin-right: 5px;"></i>
+                        <i class="fas fa-circle" id="cart_mess"></i>
+                    </a>
                 </li>
             </ul>
-            </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
     <div class="product" id="product-detail"></div>
 
     <div class="modal">
         <div class="modal-content">
-          <span class="close-btn" onclick="closeModal()">&times;</span>
-          <h2>Giỏ hàng của bạn</h2>
-            <div class="modal-body" id="cart_item">
-
+            <div class="modal-header">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2>Giỏ hàng của bạn</h2>
             </div>
+            <div class="modal-body" id="cart_item"></div>
             <div class="modal-footer">
-                <span class="mr-auto">Tổng cộng: <span id="total_bill"></span></span>
-                <button type="button" class="btn btn-secondary" onclick="closeModal()">Tiếp tục mua hàng</button>
-                <button type="button" class="btn btn-primary">Thanh toán</button>
+                <span class="total">Tổng cộng: <span id="total_bill"></span></span>
+                <button type="button" class="btn-footer" onclick="closeModal()">Tiếp tục mua hàng</button>
+                <button type="button" class="btn-footer btn-primary">Thanh toán</button>
             </div>
         </div>
-      </div>
+    </div>
     <script src="./product-detail.js"></script>
 </body>
 

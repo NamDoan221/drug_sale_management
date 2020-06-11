@@ -7,73 +7,54 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nhà thuốc 24h</title>
     <link rel="stylesheet" href="./drugstore.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top p-0">
-        <a class="navbar-brand" href="../home_cpn/index.html" style="padding: 0px 0px 1px 10%;">
+    <header>
+        <a class="navbar-brand" href="../home_cpn/index.html">
             <img src="https://thumbs.dreamstime.com/t/go-green-world-illustration-design-75249190.jpg"
                 alt="nhathuoc24h.com" width="80px" height="50px">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars text-white"></i>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+        <nav>
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="../home_cpn/index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" onclick="renderCart()"><i
-                            class="fa fa-cart-plus" style="margin-right: 5px;"><i class="fas fa-circle"
-                                id="cart_mess"></i></i></a>
+                    <a class="nav-link" onclick="renderCart()">
+                        <i class="fa fa-cart-plus" style="margin-right: 5px;"></i>
+                        <i class="fas fa-circle" id="cart_mess"></i>
+                    </a>
                 </li>
-                <li class="nav-item" id="user_img">
-                  
+                <li class="nav-item" id="user_img"></li>
+                <li class="nav-item" >
+                    <input class="form-control" id="search" placeholder="Nhập tên thuốc..." onkeyup="searchProduct()">
                 </li>
             </ul>
-            </ul>
-            <div class="form-inline my-2 my-lg-0 mr-5">
-                <input class="form-control mr-sm-2" type="search" placeholder="Nhập tên thuốc..." aria-label="Search" id="search">
-                <button class="btn btn-outline-light my-2 my-sm-0" onclick="searchProduct()">Tìm kiếm</button>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
     <div class="container">
-        <div class="row" id="products_list">
-        </div>
+        <div class="row" id="products_list"></div>
     </div>
 
-    <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Giỏ hàng của bạn</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="cart_item">
-
-                </div>
-                <div class="modal-footer">
-                    <span class="mr-auto">Tổng cộng: <span id="total_bill"></span></span>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tiếp tục mua hàng</button>
-                    <button type="button" class="btn btn-primary">Thanh toán</button>
-                </div>
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2>Giỏ hàng của bạn</h2>
+            </div>
+            <div class="modal-body" id="cart_item"></div>
+            <div class="modal-footer">
+                <span class="total">Tổng cộng: <span id="total_bill"></span></span>
+                <button type="button" class="btn-footer" onclick="closeModal()">Tiếp tục mua hàng</button>
+                <button type="button" class="btn-footer btn-primary">Thanh toán</button>
             </div>
         </div>
     </div>
     <script src="./drugstore.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>
