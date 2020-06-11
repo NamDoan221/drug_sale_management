@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Đăng ký tài khoản</title>
+    <link rel="stylesheet" href="./register.css">
+    <link href="https://fonts.googleapis.com/css?family=Exo|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div id="box">
+            <div class="logo item">
+                <img src="https://thumbs.dreamstime.com/t/go-green-world-illustration-design-75249190.jpg"
+                    alt="nhathuoc24h.com" width="70px" height="70px" style="border-radius: 50%;">
+                <p style="letter-spacing: 2px;">Vì sức khoẻ của bạn và gia đình</p>
+            </div>
+            <div class="content item">
+                <div id="input"><input type="text" placeholder="Số điện thoại" id="sdt" /></div>
+                <div id="input"><input type="password" placeholder="Mật khẩu" id="pass" /></div>
+                <div id="input"><input type="password" placeholder="Nhập lại mật khẩu" id="repass" /></div>
+                <div id="check">
+                    <input type="checkbox" id="accept" />
+                    <label for="accept">I accept condition of the page</label>
+                </div>
+                <button class="_btn btnCreateAcc">Đăng ký</button>
+                <button class="_btn btnSigup" onclick="goToLogin()">Đăng nhập</button>
+            </div>
+        </div>
+    </div>
+    <div class="toast ml-4" id="toast_id" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="../creat Acc/assets/image/logo.jpg" class="rounded mr-2" alt="nhathuoc24h.com" width="30px"
+                height="30px">
+            <strong class="mr-auto">nhathuoc24h.com</strong>
+            <small>a few seconds ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" onclick="hideToast()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="./register.js"></script>
+</body>
+
+</html>

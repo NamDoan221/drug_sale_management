@@ -1,5 +1,5 @@
 body {
-    font-family: fantasy;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 .container {
@@ -63,7 +63,7 @@ body {
 }
 
 #check label {
-    margin: 0px 0px 3px 5px;
+    margin: 0px 0px 0px 5px;
 }
 
 ._btn {
@@ -75,7 +75,7 @@ body {
     outline: none !important;
 }
 
-.btnLogin {
+.btnCreateAcc {
     background-color: #0aa072;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 20px;

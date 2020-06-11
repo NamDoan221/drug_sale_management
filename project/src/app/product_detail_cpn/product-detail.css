@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+
+/*==============navbar================*/
+
+.navbar {
+    width: 100%;
+    background-color: #09bb7b;
+    z-index: 9999;
+    font-size: 15px;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+}
+
+.navbar-toggler {
+    display: none;
+}
+
+.navbar-collapse {
+    padding-right: 10%;
+}
+
+.navbar li a,
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+}
+
+.navbar-nav {
+    display: flex;
+}
+
+.navbar-nav .nav-item {
+    height: 50px;
+    list-style: none;
+}
+
+.navbar-nav .nav-item #cart_mess {
+    font-size: 10px;
+    color: #f4511e;
+    position: relative;
+    bottom: 10px;
+    right: 5px;
+    display: none;
+}
+
+.navbar-nav .nav-item .nav-link {
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    padding: 0 15px;
+}
+
+.navbar .navbar-toggler {
+    outline: none;
+}
+
+/* product detail */
+
+.product {
+    padding: 70px 30px 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    padding-top: 50px;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    margin: auto;
+    width: 75%;
+    animation-name: animatetop;
+    animation-duration: 0.5s
+}
+
+.close-btn {
+    float: right;
+    color: lightgray;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.close-btn:hover {
+    color: darkgray;
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0px;
+        opacity: 1
+    }
+}
+
+.modal-body {
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+/*==============scroll bar================*/
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    cursor: default;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: rgba(78, 78, 78, 0.15);
+    box-shadow: inset 1px 1px 2px 0 rgba(78, 78, 78, 0.3);
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: #fff;
+}

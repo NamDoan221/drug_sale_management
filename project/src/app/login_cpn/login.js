@@ -1,11 +1,14 @@
 var users = [
-    { phoneNumber: '01234', password: '01234' },
-    { phoneNumber: '012345', password: '012345' },
-    { phoneNumber: '0123456', password: '0123456' },
-    { phoneNumber: '01234567', password: '01234567' }];
+    { img: 'https://img2.thuthuatphanmem.vn/uploads/2019/01/04/anh-co-gai-de-thuong_025058983.jpg', phoneNumber: 'phihuulong', password: 'long13032000' },
+    { img: 'https://img2.thuthuatphanmem.vn/uploads/2019/01/04/anh-co-gai-dep_025059051.png', phoneNumber: 'nguyenkhacmanh', password: 'manh08042000' },
+    { img: 'https://img2.thuthuatphanmem.vn/uploads/2019/01/04/anh-gai-dep-de-thuong-nhat_025059380.jpg', phoneNumber: 'doanvannam', password: 'nam22012000' },
+    { img: 'https://img2.thuthuatphanmem.vn/uploads/2019/01/04/anh-gai-dep-facebook_025059430.jpg', phoneNumber: 'nambaby', password: 'nam2212000' }];
 
 function onLogin() {
-    var isUser = false;
+    var isUser = {
+        status: false,
+        user_image: ""
+    };
     var user_input = {
         phoneNumber: document.getElementById("sdt").value,
         password: document.getElementById("pass").value
@@ -13,11 +16,14 @@ function onLogin() {
     var remember_password = document.getElementById("remember_pass").checked;
     for (let index = 0; index < users.length; index++) {
         if (users[index].phoneNumber === user_input.phoneNumber && users[index].password === user_input.password) {
-            isUser = true;
+            isUser = {
+                "status": true,
+                "user_image": `${users[index].img}`
+            };
             break;
         }
     }
-    if (!isUser) {
+    if (!isUser.status) {
         document.getElementById("toast_id").style.opacity = 1;
         setTimeout(() => {
             document.getElementById("toast_id").style.opacity = 0;
@@ -27,12 +33,12 @@ function onLogin() {
     if (remember_password) {
         localStorage.setItem('user', JSON.stringify(user_input));
     }
-    localStorage.setItem('loginStatus', isUser);
+    localStorage.setItem('loginStatus', JSON.stringify(isUser));
     window.location.href = "../drugstore_cpn/drugstore.html";
 }
 
 function onLoad() {
-    if (Boolean(localStorage.getItem('loginStatus'))) {
+    if (JSON.parse(localStorage.getItem('loginStatus')).status) {
         return window.location.href = "../drugstore_cpn/drugstore.html";
 
     }
@@ -46,4 +52,8 @@ function onLoad() {
 
 function hideToast() {
     document.getElementById("toast_id").style.opacity = 0;
+}
+
+function onRegister() {
+    window.location.href = "../register_cpn/register.html";
 }
