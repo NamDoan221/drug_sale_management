@@ -1,3 +1,3 @@
 function goToLogin() {
-    window.location.href = "../login_cpn/login.html";
+    location.assign("../login_cpn/login.html");
 }

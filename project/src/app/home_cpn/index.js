@@ -8,7 +8,7 @@ if (loginStatus) {
 }
 
 function goToLoginCpn() {
-  window.location.href = "../login_cpn/login.html";
+  location.assign("../login_cpn/login.html");
 }
 
 function onLogout() {

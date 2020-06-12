@@ -5,7 +5,7 @@ let modal = document.querySelector(".modal");
 (function loadProductDetail() {
     let product_detail_item = JSON.parse(sessionStorage.getItem("product_detail_item"));
     if (!product_detail_item) {
-        return window.location.href = "../drugstore_cpn/drugstore.html";
+        return location.assign("../drugstore_cpn/drugstore.html");
     }
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -81,7 +81,7 @@ function renderCart() {
 }
 
 function goToStore() {
-    window.location.href = "../drugstore_cpn/drugstore.html";
+    location.assign("../drugstore_cpn/drugstore.html");
 }
 
 class item_cart {

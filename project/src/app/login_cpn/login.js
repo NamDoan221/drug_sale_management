@@ -34,12 +34,12 @@ function onLogin() {
         localStorage.setItem('user', JSON.stringify(user_input));
     }
     localStorage.setItem('loginStatus', JSON.stringify(isUser));
-    window.location.href = "../drugstore_cpn/drugstore.html";
+    location.assign("../drugstore_cpn/drugstore.html");
 }
 
 function onLoad() {
     if (JSON.parse(localStorage.getItem('loginStatus'))) {
-        return window.location.href = "../drugstore_cpn/drugstore.html";
+        return location.assign("../drugstore_cpn/drugstore.html");
 
     }
     var user = JSON.parse(localStorage.getItem('user'));
@@ -55,5 +55,5 @@ function hideToast() {
 }
 
 function onRegister() {
-    window.location.href = "../register_cpn/register.html";
+    location.assign("../register_cpn/register.html");
 }
