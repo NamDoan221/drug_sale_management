@@ -36,19 +36,28 @@ function formatNumber(nStr, decSeperate, groupSeperate) {
     return x1 + x2;
 }
 
+function logout() {
+    localStorage.removeItem("loginStatus");
+    location.reload();
+}
+
 (function loadUser() {
     let user = JSON.parse(localStorage.getItem("loginStatus"));
     if (!user) {
         return;
     }
-    document.getElementById("user_img").innerHTML = `<img src="${user.user_image}" alt="" width="40px" height="40px" style="border-radius: 50%;">`
+    document.getElementById("user_img").innerHTML =`
+        <img src="${user.user_image}" alt="" width="40px" height="40px" style="border-radius: 50%;">
+            <ul class="user-action">
+                <li class="item-action" onclick="logout()">Logout</li>
+            </ul>`;
 })();
 
 (function loadProducts() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            products = JSON.parse(this.responseText);
+                products = JSON.parse(this.responseText);
             renderProduct(products);
         }
     };
@@ -64,8 +73,8 @@ function loadMessCart() {
 }
 
 class item_cart {
-    constructor(id, image, name, price, description, amount) {
-        this.id = id;
+                constructor(id, image, name, price, description, amount) {
+                this.id = id;
         this.image = image;
         this.name = name;
         this.price = price;
@@ -75,40 +84,40 @@ class item_cart {
 }
 
 function addToCart(product_id) {
-    products.forEach((product) => {
-        if (product.id === product_id) {
-            if (!carts) {
-                carts = [];
-                carts.push(new item_cart(product.id, product.image, product.name, product.price, product.description, 1));
-            } else {
-                let isHas = false;
-                carts.forEach(item => {
-                    if (item.id === product_id) {
-                        item.amount++;
-                        isHas = true;
-                        return;
+                products.forEach((product) => {
+                    if (product.id === product_id) {
+                        if (!carts) {
+                            carts = [];
+                            carts.push(new item_cart(product.id, product.image, product.name, product.price, product.description, 1));
+                        } else {
+                            let isHas = false;
+                            carts.forEach(item => {
+                                if (item.id === product_id) {
+                                    item.amount++;
+                                    isHas = true;
+                                    return;
+                                }
+                            })
+                            if (!isHas) {
+                                carts.push(new item_cart(product.id, product.image, product.name, product.price, product.description, 1));
+                            }
+                        }
                     }
-                })
-                if (!isHas) {
-                    carts.push(new item_cart(product.id, product.image, product.name, product.price, product.description, 1));
-                }
-            }
-        }
-    });
+                });
     localStorage.setItem("cart", JSON.stringify(carts));
     loadMessCart();
 }
 
 function renderCart() {
-    modal.style.display = "block";
+                modal.style.display = "block";
     let total_bill = 0;
     if (!carts || carts.length === 0) {
-        document.getElementById("total_bill").innerHTML = `${total_bill}$`;
+                document.getElementById("total_bill").innerHTML = `${total_bill}$`;
         return (document.getElementById("cart_item").innerHTML = `<p class="card-text">Không có sản phẩm nào!</p>`);
     }
     document.getElementById("cart_item").innerHTML = "";
     carts.forEach((item) => {
-        document.getElementById("cart_item").innerHTML +=`
+                document.getElementById("cart_item").innerHTML += `
             <div class="item">
                 <img src="${item.image}" class="item-img" />
                 <span class="item-name">${item.name}</span>
@@ -127,35 +136,35 @@ function renderCart() {
 }
 
 function countAdd(item_id) {
-    carts.forEach((product) => {
-        if (product.id === item_id) {
-            product.amount++;
-        }
-    });
+                carts.forEach((product) => {
+                    if (product.id === item_id) {
+                        product.amount++;
+                    }
+                });
     localStorage.setItem("cart", JSON.stringify(carts));
     renderCart();
     loadMessCart();
 }
 function countMinus(item_id) {
-    carts.forEach((product, i) => {
-        if (product.id === item_id) {
-            product.amount--;
-            if (product.amount === 0) {
-                carts.splice(i, 1);
-            }
-        }
-    });
+                carts.forEach((product, i) => {
+                    if (product.id === item_id) {
+                        product.amount--;
+                        if (product.amount === 0) {
+                            carts.splice(i, 1);
+                        }
+                    }
+                });
     localStorage.setItem("cart", JSON.stringify(carts));
     renderCart();
     loadMessCart();
 }
 
 function deleteFromCart(product_id) {
-    carts.forEach((product, i) => {
-        if (product.id === product_id) {
-            carts.splice(i, 1);
-        }
-    });
+                carts.forEach((product, i) => {
+                    if (product.id === product_id) {
+                        carts.splice(i, 1);
+                    }
+                });
     localStorage.setItem("cart", JSON.stringify(carts));
     renderCart();
     loadMessCart();
@@ -168,10 +177,10 @@ function removeAccents(str) {
 }
 
 function searchProduct() {
-    let key_search = document.getElementById("search").value;
+                let key_search = document.getElementById("search").value;
     document.getElementById("products_list").innerHTML = "";
     if (key_search === "") {
-        renderProduct(products);
+                renderProduct(products);
         return;
     }
     let products_search = products.filter((item) =>
@@ -183,16 +192,16 @@ function searchProduct() {
 }
 
 function goToDetail(product_id) {
-    sessionStorage.setItem("product_detail_item", JSON.stringify(product_id));
+                sessionStorage.setItem("product_detail_item", JSON.stringify(product_id));
     window.location.href = "../product_detail_cpn/product-detail.html";
 }
 
 //Modal
 function closeModal() {
-    modal.style.display = "none";
+                modal.style.display = "none";
 }
 window.onclick = function (e) {
     if (e.target == modal) {
-        modal.style.display = "none";
+                modal.style.display = "none";
     }
 }

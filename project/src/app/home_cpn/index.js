@@ -1,6 +1,3 @@
-function goToLoginCpn() {
-  window.location.href = "../login_cpn/login.html";
-}
 var loginStatus = Boolean(localStorage.getItem('loginStatus'));
 if (loginStatus) {
   document.getElementById('login').style.display = 'none';
@@ -10,6 +7,9 @@ if (loginStatus) {
   document.getElementById('login').style.display = 'block';
 }
 
+function goToLoginCpn() {
+  window.location.href = "../login_cpn/login.html";
+}
 
 function onLogout() {
   const confirmResult = confirm('You definitely want to log out?');
@@ -17,5 +17,5 @@ function onLogout() {
     return;
   }
   localStorage.removeItem('loginStatus');
-  window.location.href = "./index.html";
+  location.reload();
 }

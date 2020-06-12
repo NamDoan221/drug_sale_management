@@ -11,11 +11,12 @@ body {
 button {
     cursor: pointer;
     outline: none;
-    transition: all 0.3s ease-in;
+    transition: all 0.2s ease-in;
 }
 
 .container {
     padding: 80px 50px 0px;
+    background-color: #fff;
 }
 
 /*==============navbar===============*/
@@ -81,6 +82,26 @@ header {
     margin-left: 0;
 }
 
+.user-action {
+    display: none;
+    position: absolute;
+    list-style: none;
+    color: #fff;
+    background-color: #09bb7b;
+    top: 50px;
+    padding: 10px;
+    transition: all 0.4s ease;
+}
+
+#user_img:hover .user-action {
+    display: block;
+}
+
+.user-action:hover {
+    color: #f4511e;
+    background-color: #fff;
+}
+
 .nav-item .form-control {
     outline: none;
     height: 30px;
@@ -95,21 +116,28 @@ header {
     display: flex;
     flex-wrap: wrap;
 }
+
 .col {
+    background-color: #fff;
     width: 15%;
     border: 1px solid #bfbaba99;
     margin: 10px auto;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow:
-  0 7px 30px -10px rgba(150,170,180,0.8);
+    transition: all 0.3s ease;
 }
+
+.col:hover {
+    box-shadow:
+        0 7px 50px -10px rgba(150, 170, 180, 1);
+}
+
 .card .img-card {
     height: 160px;
     width: 100%;
 }
 
-.card .card-body{
+.card .card-body {
     padding: 20px;
 }
 
@@ -125,15 +153,17 @@ header {
     height: 60px;
     margin: 0;
 }
-.card .card-body  .card-price {
+
+.card .card-body .card-price {
     padding-top: 15px;
     color: red;
 }
+
 .card .card-footer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 0.75rem !important;
-    border-top: 1px solid #bfbaba99;   
+    border-top: 1px solid #bfbaba99;
 }
 
 .btn {
@@ -142,6 +172,7 @@ header {
     padding: 10px;
     color: #fff;
 }
+
 .btn-add {
     background-color: #09bb7b;
 }
@@ -155,7 +186,7 @@ header {
 }
 
 .btn-detail:hover {
-    background-color: #fc5c65;
+    background-color: #f83c46;
 }
 
 /*============responsive==============*/
@@ -272,6 +303,14 @@ header {
 .modal-footer {
     border-top: 1px solid #dfdcdc;
     padding: 20px 30px;
+    height: 80px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.total {
+    margin-right: auto;
 }
 
 #total_bill {
@@ -283,7 +322,7 @@ header {
     float: right;
     margin-left: 5px;
     color: #fff;
-    padding: 5px 10px;
+    padding: 10px;
     border: none;
     background-color: #dd0c0d;
     border-radius: 3px;
