@@ -15,57 +15,64 @@ button {
 }
 
 /*==============navbar================*/
-
-header {
-    width: 100%;
-    padding: 0px 10%;
-    background-color: #09bb7b;
-    z-index: 9999;
-    font-size: 15px;
-    letter-spacing: 3px;
+#headerNavbar{
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    justify-content: space-around;
     position: fixed;
-}
-
-.navbar-brand {
-    display: flex;
-    margin-right: auto;
-}
-
-.navbar-nav {
-    display: flex;
-}
-
-.navbar-nav li a {
-    color: #fff;
-    text-decoration: none;
-    height: 100%;
-    padding: 0 15px;
-    display: flex;
-    align-items: center;
-}
-
-.navbar-nav li a:hover {
-    color: #f4511e;
+    height: 60px;
     background-color: #fff;
+    z-index: 9999;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 3px 15px rgba(0,0,0,.1);
+  }
+  /*styles menu----------->*/
+  #menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: 60px;
+  }
+  #menu li{
+    list-style-type: none;
+    margin: 0px 5px;
+  }
+  #menu li a{
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #fff;
+    border-radius: 30px;
+    transition-property: all;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-delay: 0s;
+  }
+  #menu li a:hover{
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #f5f6fa;
+    border-radius: 30px;
+    font-weight: 600;
+    transition-property: all;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-delay: 0s;
+  }
+  
+  #menu li a:focus{
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #f5f6fa;
+    border-radius: 30px;
+    font-weight: 600;
+  }
+#search{
+    padding: 5px 0px 5px 10px;
+    border: 1px solid #111c63;
+    border-radius: 30px;
+    outline: none;
 }
 
-.navbar-nav .nav-item {
-    height: 50px;
-    list-style: none;
-    margin-left: 20px;
-}
-
-.navbar-nav .nav-item #cart_mess {
-    font-size: 10px;
-    color: #f4511e;
-    position: relative;
-    bottom: 7px;
-    right: 10px;
-    display: none;
-}
 
 /* product detail */
 

@@ -5,7 +5,13 @@
 }
 
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font: 400 15px sans-serif;
+    line-height: 1.8;
+    color: #000;
+    font-family: 'Exo', sans-serif;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 
 button {
@@ -18,98 +24,63 @@ button {
     padding: 80px 50px 0px;
     background-color: #fff;
 }
-
-/*==============navbar===============*/
-
-header {
-    width: 100%;
-    padding: 0px 10%;
-    background-color: #09bb7b;
-    z-index: 9999;
-    font-size: 15px;
-    letter-spacing: 3px;
+#headerNavbar{
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    justify-content: space-around;
     position: fixed;
-}
-
-.navbar-brand {
+    height: 60px;
+    background-color: #fff;
+    z-index: 9999;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 3px 15px rgba(0,0,0,.1);
+  }
+  /*styles menu----------->*/
+  #menu{
     display: flex;
-    margin-right: auto;
-}
-
-.navbar-nav {
-    display: flex;
-}
-
-.navbar-nav li a {
-    color: #fff;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: 60px;
+  }
+  #menu li{
+    list-style-type: none;
+    margin: 0px 5px;
+  }
+  #menu li a{
+    padding: 10px 20px;
     text-decoration: none;
-    height: 100%;
-    padding: 0 15px;
-    display: flex;
-    align-items: center;
-}
-
-.navbar-nav li a:hover {
-    color: #f4511e;
     background-color: #fff;
-}
-
-.navbar-nav .nav-item {
-    height: 50px;
-    list-style: none;
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.navbar-nav .nav-item #cart_mess {
-    font-size: 10px;
-    color: #f4511e;
-    position: relative;
-    bottom: 7px;
-    right: 10px;
-    display: none;
-}
-
-#user_img {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 0px 15px;
-    margin-left: 0;
-}
-
-.user-action {
-    display: none;
-    position: absolute;
-    list-style: none;
-    color: #fff;
-    background-color: #09bb7b;
-    top: 50px;
-    padding: 10px;
-    transition: all 0.4s ease;
-}
-
-#user_img:hover .user-action {
-    display: block;
-}
-
-.user-action:hover {
-    color: #f4511e;
-    background-color: #fff;
-}
-
-.nav-item .form-control {
+    border-radius: 30px;
+    transition-property: all;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-delay: 0s;
+  }
+  #menu li a:hover{
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #f5f6fa;
+    border-radius: 30px;
+    font-weight: 600;
+    transition-property: all;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-delay: 0s;
+  }
+  
+  #menu li a:focus{
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #f5f6fa;
+    border-radius: 30px;
+    font-weight: 600;
+  }
+#search{
+    padding: 5px 0px 5px 10px;
+    border: 1px solid #111c63;
+    border-radius: 30px;
     outline: none;
-    height: 30px;
-    border: 1px solid #9999;
-    border-radius: 20px;
-    padding: 0px 10px;
 }
-
 /*==============card==============*/
 
 .row {
@@ -170,23 +141,36 @@ header {
     border: none;
     border-radius: 5px;
     padding: 10px;
-    color: #fff;
+    color: #111c63;
 }
 
 .btn-add {
-    background-color: #09bb7b;
+    background-color: #4CE1C6;
+    transition-property: all;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-delay: 0s;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
 }
 
 .btn-add:hover {
-    background-color: #29B6F6;
+    background-color: #30b5a1;
+    transition-property: all;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-delay: 0s;
+    box-shadow: 0 0 0 0.2rem rgba(76, 225, 198, 0.25);
 }
 
 .btn-detail {
-    background-color: #f4511e;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+    background-color: #fff;
+    border: 1px solid #4CE1C6;
 }
 
 .btn-detail:hover {
-    background-color: #f83c46;
+    box-shadow: 0 0 0 0.2rem rgba(76, 225, 198, 0.25);
+    background-color: #fff;
 }
 
 /*============responsive==============*/
@@ -248,7 +232,7 @@ header {
     max-height: 400px;
     overflow-y: scroll;
     padding: 10px 20px;
-    background-image: url(https://thuthuatnhanh.com/wp-content/uploads/2019/08/anh-con-gai-deo-kinh-de-thuong-580x580.jpg);
+    /* background-image: url(https://thuthuatnhanh.com/wp-content/uploads/2019/08/anh-con-gai-deo-kinh-de-thuong-580x580.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
