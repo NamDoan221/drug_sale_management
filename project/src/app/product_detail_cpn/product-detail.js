@@ -24,8 +24,8 @@ let modal = document.querySelector(".modal");
                         <p class="text-price">${formatNumber(product.price, ".", ",")} vnd</p>
                     </div>
                     <div class="product-action">
-                        <button type="button" class="btn btn-info" onclick="addToCart('${product.id}')">Add to cart</button>
-                        <button type="button" class="btn btn-danger" onclick="goToStore()">Go Back Store</button>
+                        <button type="button" class="btn btn-add" onclick="addToCart('${product.id}')">Add to cart</button>
+                        <button type="button" class="btn btn-back" onclick="goToStore()">Go Back Store</button>
                     </div>
                 </div>`;
         }
@@ -58,7 +58,7 @@ function renderCart() {
     modal.style.display = "block";
     let total_bill = 0;
     if (!carts || carts.length === 0) {
-        document.getElementById("total_bill").innerHTML = `${total_bill}$`;
+        document.getElementById("total_bill").innerHTML = `${total_bill}đ`;
         return (document.getElementById("cart_item").innerHTML = `<p class="card-text">Không có sản phẩm nào!</p>`);
     }
     document.getElementById("cart_item").innerHTML = "";

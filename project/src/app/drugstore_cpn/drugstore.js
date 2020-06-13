@@ -49,7 +49,10 @@ function logout() {
     document.getElementById("user_img").innerHTML = `
         <img src="${user.user_image}" alt="" width="40px" height="40px" style="border-radius: 50%;">
             <ul class="user-action">
-                <li class="item-action" onclick="logout()">Logout</li>
+                <li class="item-action" onclick="logout()" style="padding: 5px;">
+                    <i class="fa fa-power-off" style="padding-right: 5px;"></i>
+                    Logout
+                </li>
             </ul>`;
 })();
 
@@ -112,7 +115,7 @@ function renderCart() {
     modal.style.display = "block";
     let total_bill = 0;
     if (!carts || carts.length === 0) {
-        document.getElementById("total_bill").innerHTML = `${total_bill}$`;
+        document.getElementById("total_bill").innerHTML = `${total_bill}đ`;
         return (document.getElementById("cart_item").innerHTML = `<p class="card-text">Không có sản phẩm nào!</p>`);
     }
     document.getElementById("cart_item").innerHTML = "";
