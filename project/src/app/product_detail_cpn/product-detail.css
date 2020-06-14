@@ -296,6 +296,59 @@ button {
     background-color: #0b9c9a !important;
 }
 
+/*styles footer----------->*/
+footer {
+    background: #1f3441;
+    color: #f5f6fa;
+    font-family: "Exo", sans-serif;
+    font-weight: 600;
+}
+
+footer li {
+    list-style-type: none;
+    line-height: 35px;
+}
+
+footer li a:hover {
+    text-decoration: none;
+    color: rgb(163, 33, 33);
+    width: 100%;
+}
+
+footer li a {
+    color: #f5f6fa;
+    transition: 0.5s;
+}
+
+#contact-social li {
+    font-size: 40px;
+    padding: 10px;
+}
+
+#contact-social li {
+    display: inline-table;
+}
+
+
+.row {
+    display: flex;
+    padding: 40px;
+    justify-content: space-around;
+}
+
+#sub-menu-footer {
+    list-style-type: none;
+}
+
+#sub-menu-footer li a {
+    text-decoration: none;
+    padding: 0px;
+}
+
+#sub-menu-footer li {
+    margin: 0px !important;
+}
+
 /*==============scroll bar================*/
 
 ::-webkit-scrollbar {

@@ -7,6 +7,7 @@ body {
   margin: 0px;
   padding: 0px;
 }
+
 /*============reponsive============*/
 @media only screen and (min-width: 1200px) {
   .row {
@@ -234,9 +235,12 @@ body {
   border-radius: 30px;
   font-weight: 600;
 }
-#login, #logout {
+
+#login,
+#logout {
   color: #111c63;
 }
+
 /*styles banner----------->*/
 #baner {
   padding: 70px 0px;
@@ -602,4 +606,23 @@ footer li a {
   padding: 10px 15px;
   width: 100px;
   justify-content: space-between;
+}
+
+/*==============scroll bar================*/
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  cursor: default;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: rgba(78, 78, 78, 0.15);
+  box-shadow: inset 1px 1px 2px 0 rgba(78, 78, 78, 0.3);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  background: #fff;
 }
