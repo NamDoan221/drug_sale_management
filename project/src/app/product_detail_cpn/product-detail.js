@@ -1,11 +1,13 @@
-var carts = JSON.parse(localStorage.getItem("cart"));
-var product;
+let carts = JSON.parse(localStorage.getItem("cart"));
+let product;
 let modal = document.querySelector(".modal");
+let number_amount = sessionStorage.getItem("number");
+if (!number_amount) {
+  number_amount = 1;
+}
 
-(function loadProductDetail() {
-  let product_detail_item = JSON.parse(
-    sessionStorage.getItem("product_detail_item")
-  );
+(function onLoad() {
+  let product_detail_item = JSON.parse(sessionStorage.getItem("product_detail_item"));
   if (!product_detail_item) {
     return location.assign("../drugstore_cpn/drugstore.html");
   }
@@ -14,45 +16,7 @@ let modal = document.querySelector(".modal");
     if (this.readyState == 4 && this.status == 200) {
       product = JSON.parse(this.responseText);
       window.document.title = `${product.name} detail`;
-      document.getElementById(
-        "product-detail"
-      ).innerHTML = `<div class="product-img">
-                    <img src="${product.image}" class="card-img-top img-card"
-                    alt="${product.name}">
-                </div>
-                <div class="product-content">
-                    <div class="product-perform">
-                        <h2 class="title">${product.name}</h2>
-                        <p class="text-description">${product.description}</p>
-                        <div class="box-star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="text-price">${formatNumber(
-                          product.price,
-                          ".",
-                          ","
-                        )} vnd</p>
-                    </div>
-                    <div class="btn-group" role="group" aria-label="First group" style="background-color:#fff">
-                        <button type="button" class="btn-item" onclick="countMinus('${
-                          product.id
-                        }')">-</button>
-                        <button type="button" class="btn-item" >1</button>
-                        <button type="button" class="btn-item" onclick="countAdd('${
-                          product.id
-                        }')">+</button>
-                    </div>
-                    <div class="product-action">
-                        <button type="button"  class="btn btn-back" onclick="addToCart('${
-                          product.id
-                        }')"><i class="fa fa-cart-plus" style="margin-right: 5px;color: #111c63;"></i>Thêm vào rỏ</button>
-                        <button type="button" class="btn btn-add" onclick="goToStore()">Mua ngay</button>
-                    </div>
-                </div>`;
+      loadProductDetail(product);
     }
   };
   xhttp.open(
@@ -63,6 +27,55 @@ let modal = document.querySelector(".modal");
   xhttp.send();
   loadMessCart();
 })();
+
+function loadProductDetail(product) {
+  document.getElementById("product-detail").innerHTML =
+    `<div class="product-img">
+      <img src="${product.image}" class="card-img-top img-card"
+        alt="${product.name}">
+    </div>
+    <div class="product-content">
+      <div class="product-perform">
+        <h2 class="title">${product.name}</h2>
+        <p class="text-description">${product.description}</p>
+        <div class="box-star">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="text-price">${formatNumber(product.price, ".", ",")} vnd</p>
+      </div>
+      <div class="btn-group" role="group" aria-label="First group" style="background-color:#fff">
+        <button type="button" class="btn-item" onclick="Minus(number_amount)">-</button>
+        <button type="button" class="btn-item" >${number_amount}</button>
+        <button type="button" class="btn-item" onclick="Add(number_amount)">+</button>
+      </div>
+      <div class="product-action">
+        <button type="button" class="btn btn-back" onclick="addToCart('${product.id}', number_amount)"><i class="fa fa-cart-plus" style="margin-right: 5px;color: #111c63;"></i>Thêm vào rỏ</button>
+        <button type="button" class="btn btn-add" onclick="goToStore()">Mua ngay</button>
+      </div>
+    </div>`;
+}
+
+function Minus(value) {
+  value--;
+  if (value < 1) {
+    alert("Số lượng sản phẩm phải lớn hơn 1");
+    return;
+  }
+  number_amount = value.toString();
+  sessionStorage.setItem("number", number_amount);
+  loadProductDetail(product);
+}
+
+function Add(value) {
+  value++;
+  number_amount = value.toString();
+  sessionStorage.setItem("number", number_amount);
+  loadProductDetail(product);
+}
 
 function loadMessCart() {
   if (!carts || carts.length === 0) {
@@ -88,45 +101,25 @@ function renderCart() {
   let total_bill = 0;
   if (!carts || carts.length === 0) {
     document.getElementById("total_bill").innerHTML = `${total_bill}đ`;
-    return (document.getElementById(
-      "cart_item"
-    ).innerHTML = `<p class="card-text">Không có sản phẩm nào!</p>`);
+    return (document.getElementById("cart_item").innerHTML = `<p class="card-text">Không có sản phẩm nào!</p>`);
   }
   document.getElementById("cart_item").innerHTML = "";
   carts.forEach((item) => {
     document.getElementById("cart_item").innerHTML += `<div class="item">
             <img src="${item.image}" class="item-img" />
             <span class="item-name">${item.name}</span>
-            <span class="item-price">${formatNumber(
-              item.price,
-              ".",
-              ","
-            )}đ</span>
+            <span class="item-price">${formatNumber(item.price, ".", ",")}đ</span>
             <div class="btn-group" role="group" aria-label="First group" style="background-color:#fff">
-                <button type="button" class="btn-item" onclick="countMinus('${
-                  item.id
-                }')">-</button>
+                <button type="button" class="btn-item" onclick="countMinus('${item.id}')">-</button>
                 <button type="button" class="btn-item" >${item.amount}</button>
-                <button type="button" class="btn-item" onclick="countAdd('${
-                  item.id
-                }')">+</button>
+                <button type="button" class="btn-item" onclick="countAdd('${item.id}')">+</button>
             </div>
-            <span class="item-total">${formatNumber(
-              item.price * item.amount,
-              ".",
-              ","
-            )}đ</span>
-            <button type="button" class="btn-action" onclick="deleteFromCart('${
-              item.id
-            }')">Xóa</button>
+            <span class="item-total">${formatNumber(item.price * item.amount, ".", ",")}đ</span>
+            <button type="button" class="btn-action" onclick="deleteFromCart('${item.id}')">Xóa</button>
         </div>`;
     total_bill += item.price * item.amount;
   });
-  document.getElementById("total_bill").innerHTML = `${formatNumber(
-    total_bill,
-    ".",
-    ","
-  )}đ`;
+  document.getElementById("total_bill").innerHTML = `${formatNumber(total_bill, ".", ",")}đ`;
 }
 
 function goToStore() {
@@ -144,7 +137,7 @@ class item_cart {
   }
 }
 
-function addToCart(product_id) {
+function addToCart(product_id, number) {
   if (!carts) {
     carts = [];
     carts.push(
@@ -154,14 +147,14 @@ function addToCart(product_id) {
         product.name,
         product.price,
         product.description,
-        1
+        Number(number)
       )
     );
   } else {
     let isHas = false;
     carts.forEach((item) => {
       if (item.id === product_id) {
-        item.amount++;
+        item.amount += Number(number);
         isHas = true;
         return;
       }
@@ -174,7 +167,7 @@ function addToCart(product_id) {
           product.name,
           product.price,
           product.description,
-          1
+          Number(number)
         )
       );
     }
