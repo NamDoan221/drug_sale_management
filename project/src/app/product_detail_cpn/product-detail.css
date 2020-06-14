@@ -6,6 +6,8 @@
 
 body {
     font-family: 'Exo', sans-serif;
+    background-color: #f5f6fa;
+    
 }
 
 button {
@@ -83,14 +85,25 @@ button {
 /* product detail */
 
 .product {
-    padding: 70px 30px 20px 30px;
+    padding: 30px 30px 20px 30px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-around;
+    background-color: #fff;
+    margin: 0px 100px 10px 100px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, .1);
 }
-
+.note-box{
+    padding: 30px 30px 20px 30px;
+    margin: 0px 100px 10px 100px;
+    background-color: #fff;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, .1);
+}
 .product-img {
     width: 45%;
+    padding: 2px;
+    border:1px solid #ddd;
+    border-radius: 5px;
 }
 
 .product-content {
@@ -99,34 +112,46 @@ button {
 
 .product-img img {
     width: 100%;
+    border-radius: 5px;
 }
 
 .product-content {
-    display: flex;
-    flex-direction: column;
+    display: block;
 }
-
+.box-star{
+    display: flex;
+}
+.box-star i{
+    color: #ffbd3d;
+    margin: 5px;
+}
 .product-perform {
     padding: 10px;
 }
-
+.text-description{
+    color: #888;
+    padding: 0px 0px 15px;
+}
 .product-perform .title {
-    padding: 30px 0;
+    
 }
 
 .product-perform .text-price {
     padding: 20px 0;
     color: #d63031;
+    font-size: 25px;
 }
 
 .btn {
     border: none;
     border-radius: 5px;
     padding: 10px;
-    color: #111c63;
+    
+    font-weight: 600;
 }
 
 .btn-add {
+    color: #fff;
     background-color: #4CE1C6;
     transition-property: all;
     transition-duration: 0.6s;
@@ -134,7 +159,9 @@ button {
     transition-delay: 0s;
     box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
 }
-
+.product-action{
+    margin: 30px 0px;
+}
 .btn-add:hover {
     background-color: #30b5a1;
     transition-property: all;
@@ -145,6 +172,7 @@ button {
 }
 
 .btn-back {
+    color: #111c63;
     box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
     background-color: #fff;
     border: 1px solid #4CE1C6;
@@ -295,7 +323,43 @@ button {
 .btn-primary:hover {
     background-color: #0b9c9a !important;
 }
-
+/*styles rate----------->*/
+.evaluate {
+    padding: 30px 30px 20px 30px;
+    display: flex;
+    background-color: #fff;
+    margin: 0px 100px 50px 100px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, .1);
+}
+#title-rate{
+    font-size: 25px;
+    font-weight: bold;
+    color: #111c63;
+    margin-bottom: 20px;
+}
+#box-rate{
+    display: flex;
+    align-items: center;
+}
+.true{  
+    color: #ffbd3d !important;
+}
+.false{
+    color: #ddd !important;
+}
+.rate-right{
+    width: 300px;
+    height: 10px;
+    background-color: #ddd;
+    margin: 0px 20px;
+    border-radius: 30px;
+}
+.rate{
+    background-color: #4CE1C6;
+    height: 100%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
 /*styles footer----------->*/
 footer {
     background: #1f3441;
