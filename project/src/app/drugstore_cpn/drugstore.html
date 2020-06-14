@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./drugstore.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -18,6 +19,20 @@
                 <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/logo.svg"
                     alt="nhathuoc24h.com" width="140px" height="60px" /></a>
         </div>
+        <div>
+        <div id="box-search">
+            <input class="form-control" id="search" placeholder="Nhập tên thuốc..." onkeyup="searchProduct()">
+            <div class="box-icon-search"><i class="fa fa-search"></i></div>
+        </div>
+        <ul id="sub-menu">
+            <li><a href="#">Tất cả</a></li>
+            <li><a href="#">Thuốc bán theo chỉ định</a></li>
+            <li><a href="#">Thuốc đặc trị</a></li>
+            <li><a href="#">Thực phẩm chức năng</a></li>
+            <li><a href="#">Dược mỹ phẩm</a></li>
+            <li><a href="#">Dụng cụ y tế</a></li>
+        </ul>
+    </div>
         <div id="menuRight">
             <ul id="menu">
                 <li>
@@ -30,16 +45,13 @@
                     </a>
                 </li>
                 <li id="user_img"></li>
-                <li>
-                    <input class="form-control" id="search" placeholder="Nhập tên thuốc..." onkeyup="searchProduct()">
-
-                </li>
-
             </ul>
         </div>
     </div>
     <div class="container">
+        <hr style="margin: 20px;">
         <div class="row" id="products_list"></div>
+        <hr style="margin: 20px;">
     </div>
 
     <div class="modal">
@@ -57,6 +69,53 @@
         </div>
     </div>
     <script src="./drugstore.js"></script>
+    <footer>
+            <div class="row" style="padding: 40px;justify-content: space-around;">
+                <div class="col-lg-4 col-md-4">
+                    <div>
+                        <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/logo.svg"
+                            alt="nhathuoc24h.com" width="140px" height="70px" />
+                    </div>
+                    <p>Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad eos obcaecati tenetur
+                        veritatis eveniet distinctio possimus.</p>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <ul id="contact-social">
+                        <li>
+                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-twitter-square"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <ul id="sub-menu-footer">
+                        <li><a href="#">Tất cả</a></li>
+                        <li><a href="#">Thuốc bán theo chỉ định</a></li>
+                        <li><a href="#">Thuốc đặc trị</a></li>
+                        <li><a href="#">Thực phẩm chức năng</a></li>
+                        <li><a href="#">Dược mỹ phẩm</a></li>
+                        <li><a href="#">Dụng cụ y tế</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h3><b>Get In Touch</b></h3>
+                    <ul style="padding: 0px;">
+                        <li>
+                            <p><i class="fas fa-envelope-square pr-2"></i>Support Available for 24/7</p>
+                        </li>
+                        <li><a href="#">Privacy Policy</a><b>Support@email.com</b></li>
+                        <li>Mon to Fri : 08:30 - 18:00</li>
+                        <li><a href="#"><b><i class="fas fa-phone pr-1"></i>+23-456-6588</b></a></li>
+                    </ul>
+                </div>
+            </div>
+    </footer>
 </body>
 
 </html>
