@@ -15,8 +15,8 @@ function renderProduct(data) {
                         <p class="card-price">${formatNumber(product.price, '.', ',')}đ</p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" class="btn btn-add" onclick="addToCart('${product.id}')">Add to cart</button>
-                        <button type="button" class="btn btn-detail" onclick="goToDetail('${product.id}')">View Detail</button>
+                        <button type="button" class="btn btn-add" onclick="addToCart('${product.id}')">Thêm vào giỏ</button>
+                        <button type="button" class="btn btn-detail" onclick="goToDetail('${product.id}')">Chi tiết</button>
                     </div>
                 </div>
             </div>`;
@@ -51,7 +51,7 @@ function logout() {
             <ul class="user-action">
                 <li class="item-action" onclick="logout()" style="padding: 5px;">
                     <i class="fa fa-power-off" style="padding-right: 5px;"></i>
-                    Logout
+                    Đăng xuất
                 </li>
             </ul>`;
 })();
@@ -208,3 +208,7 @@ window.onclick = function (e) {
         modal.style.display = "none";
     }
 }
+
+function onPay() {
+    alert("Tính năng tạm thời bị khóa!");
+  }

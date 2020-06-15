@@ -221,3 +221,7 @@ window.onclick = function (e) {
     modal.style.display = "none";
   }
 };
+
+function onPay() {
+  alert("Tính năng tạm thời bị khóa!");
+}
