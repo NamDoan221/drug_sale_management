@@ -4,7 +4,7 @@
 <head>
     <title>nhathuoc24h.com</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
@@ -19,7 +19,24 @@
                 alt="nhathuoc24h.com" width="140px" height="60px" />
         </div>
         <div id="menuRight">
+            <div id="icon-nav">
+                <a href="#">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
             <ul id="menu">
+                <li><a href="#about">Tổng quan</a></li>
+                <li><a href="#services">Dịch vụ</a></li>
+                <li><a href="#portfolio">Cửa hàng</a></li>
+                <li><a href="#pricing">Thành viên</a></li>
+                <li><a href="#contact">Liên lạc</a></li>
+                <li><a href="../drugstore_cpn/drugstore.html">Nhà thuốc online</a></li>
+                <li id="login"><a href="../login_cpn/login.html"><i class="fa fa-power-off" style="padding-right: 5px;"></i>Login</a></li>
+                <li id="logout" onclick="onLogout()">
+                    <a><i class="fa fa-power-off" style="padding-right: 5px;"></i>Logout</a>
+                </li>
+            </ul>
+            <ul id="menu-reponse">
                 <li><a href="#about">Tổng quan</a></li>
                 <li><a href="#services">Dịch vụ</a></li>
                 <li><a href="#portfolio">Cửa hàng</a></li>
@@ -41,11 +58,11 @@
     </div>
     <div id="content">
         <div id="introduct" class="row">
-            <div id="introductLeft" class="col-12 col-md-12 col-lg-6">
+            <div id="introductLeft" class="col-6 col-s-12 col-xs-12">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbHwOlypHehaxQP4tmvM4aRejj_W-muca3lHrY58TjNWmTiP-4&usqp=CAU"
                     alt="" width="100%" />
             </div>
-            <div id="introductRight" class="col-12 col-md-12 col-lg-6">
+            <div id="introductRight" class="col-6 col-s-12 col-xs-12">
                 <p id="introTitle">Nhà Thuốc Trực Tuyến Jio</p>
                 <p id="introTitle-first">Thân Thiện Với Mọi Nhà</p>
                 <div id="hr"></div>
@@ -62,7 +79,7 @@
             </div>
         </div>
         <div id="introService" class="row">
-            <div id="introLeft" class="col-12 col-md-12 col-lg-6">
+            <div id="introLeft" class="col-6 col-s-12 col-xs-12">
                 <p id="introTitle-first">Bạn thấy không khoẻ?</p>
                 <p id="introTitle">Hãy để chúng tôi chăm sóc bạn!</p>
                 <div id="hr"></div>
@@ -77,7 +94,7 @@
                 </div>
                 <button id="btn">Khám phá các dịch vụ</button>
             </div>
-            <div id="introRight" class="col-12 col-md-12 col-lg-6">
+            <div id="introRight" class="col-6 col-s-12 col-xs-12">
                 <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/not-feeling-well.svg"
                     alt="nhathuoc24h.com" width="100%" height="auto" />
             </div>
@@ -90,8 +107,9 @@
                 Blog Jio Health mang đến bạn những kiến thức y khoa chuẩn xác & tin
                 cậy, cũng như những thông tin mới nhất về cộng đồng Jio Health.
             </p>
-            <div id="contentService">
-                <a href="" class="boxService">
+            <div id="contentServiceBox">
+            <div id="contentService" class="row">
+                <a href="" class="boxService col-2  col-xs-12">
                     <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/icons/cardiology-icon.svg"
                         alt="" />
                     <div>
@@ -99,7 +117,7 @@
                         <p>7 Topics</p>
                     </div>
                 </a>
-                <a href="" class="boxService">
+                <a href="" class="boxService col-2 col-xs-12">
                     <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/icons/pediatrics-icon.svg"
                         alt="" />
                     <div>
@@ -107,7 +125,7 @@
                         <p>7 Topics</p>
                     </div>
                 </a>
-                <a href="" class="boxService">
+                <a href="" class="boxService col-2  col-xs-12">
                     <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/icons/endocrinology-icon.svg"
                         alt="" />
                     <div>
@@ -115,7 +133,7 @@
                         <p>7 Topics</p>
                     </div>
                 </a>
-                <a href="" class="boxService">
+                <a href="" class="boxService col-2 col-xs-12">
                     <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/icons/kidneys-icon.svg"
                         alt="" />
                     <div>
@@ -124,9 +142,8 @@
                     </div>
                 </a>
             </div>
-
-            <div id="contentService">
-                <a href="" class="boxService">
+            <div id="contentService" class="row">
+                <a href="" class="boxService col-2 col-xs-12">
                     <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/icons/kidneys-icon.svg"
                         alt="" />
                     <div>
@@ -134,7 +151,7 @@
                         <p>7 Topics</p>
                     </div>
                 </a>
-                <a href="" class="boxService">
+                <a href="" class="boxService col-2 col-xs-12">
                     <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/icons/fetus-icon.svg"
                         alt="" />
                     <div>
@@ -142,7 +159,7 @@
                         <p>7 Topics</p>
                     </div>
                 </a>
-                <a href="" class="boxService">
+                <a href="" class="boxService col-2 col-xs-12">
                     <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/icons/sexual-health-icon.svg"
                         alt="" />
                     <div>
@@ -150,7 +167,7 @@
                         <p>7 Topics</p>
                     </div>
                 </a>
-                <a href="" class="boxService">
+                <a href="" class="boxService col-2 col-xs-12">
                     <i class="fas fa-tooth" style="font-size: 27px; color: red; margin: 10px;"></i>
                     <div>
                         <p>Răng hàm mặt</p>
@@ -158,6 +175,7 @@
                     </div>
                 </a>
             </div>
+        </div>
         </div>
     </div>
 
@@ -168,8 +186,8 @@
         <p style="text-align: center; color: #111c63;margin-bottom: 30px;">
             Liên hệ với cơ sở gần nhất để được hỗ trợ nhanh chóng, thuận tiện
         </p>
-        <div id="contentPortfolio">
-            <div class="boxPortfolio col-12 col-md-12 col-lg-4">
+        <div id="contentPortfolio" class="row">
+            <div class="boxPortfolio col-s-9 col-4 col-xs-12">
                 <img src="https://www.brandsvietnam.com/upload/forum2/2018/01/14539AnKhang2_1516206869.jpg"
                     alt="TP Hồ Chí Minh" width="100%" height="300" />
                 <div>
@@ -177,7 +195,7 @@
                     <p>162 Tân Hòa Đông, Phường 14, Quận 6, Hồ Chí Minh, Vietnam</p>
                 </div>
             </div>
-            <div class="boxPortfolio col-12 col-md-12 col-lg-4">
+            <div class="boxPortfolio col-s-9 col-4 col-xs-12">
                 <img src="https://trinhduocvien.edu.vn/wp-content/uploads/2016/05/quy-dinh-mo-nha-thuoc.jpg"
                     alt="Đà Nẵng" width="100%" height="300" />
                 <div>
@@ -185,7 +203,7 @@
                     <p>307 Hoàng Diệu, Bình Thuận, Hải Châu, Đà Nẵng, Vietnam</p>
                 </div>
             </div>
-            <div class="boxPortfolio col-12 col-md-12 col-lg-4">
+            <div class="boxPortfolio col-s-9 col-4 col-xs-12">
                 <img src="https://www.brandsvietnam.com/upload/news/480px/2019/18672_VinFa.jpg" alt="Hà Nội"
                     width="100%" height="300" />
                 <div>
@@ -203,8 +221,8 @@
         <p style="text-align: center; color: #111c63;">
             Để lại thông tị liên hệ, chúng tôi sẽ phản hồi trong 24h
         </p>
-        <div id="box">
-            <div id="boxLeft">
+        <div id="box" class="row">
+            <div id="boxLeft" class="col-xs-12 col-s-12 col-6 ">
                 <p>
                     <span class="glyphicon glyphicon-map-marker"></span> Hà Nội
                 </p>
@@ -219,7 +237,7 @@
                     </button>
                 </div>
             </div>
-            <div id="boxInput">
+            <div id="boxInput" class="col-xs-12 col-s-12 col-6 ">
                 <input class="form-control" id="name" name="name" placeholder="Họ tên" type="text" required />
                 <input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
                 <textarea class="form-control" id="comments" name="comments" placeholder="Bình luận"
@@ -233,7 +251,7 @@
     <footer>
         <div class="container">
             <div class="row" >
-                <div class="col-lg-3 col-md-3">
+                <div class="col-4 col-s-12 col-xs-12">
                     <div>
                         <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/logo.svg"
                             alt="nhathuoc24h.com" width="140px" height="70px" />
@@ -255,7 +273,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-6 col-md-7">
+                <div class="col-5 col-s-12 col-xs-12">
                     <ul id="menuFooter">
                         <li><a href="#about">Tổng quan</a></li>
                         <li><a href="#services">Dịch vụ</a></li>
@@ -265,7 +283,7 @@
                         <li><a href="../drugstore_cpn/drugstore.html">Nhà thuốc Online</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-3">
+                <div class="col-3 col-s-12 col-xs-12">
                     <h3><b>Liên lạc</b></h3>
                     <ul style="padding: 0px;">
                         <li>
@@ -277,12 +295,12 @@
                     </ul>
                 </div>
             </div>
-            <div class="row" id="footer-email">
-                <div>
+            <div id="footer-email" class="row">
+                <div  class="col-6 col-s-12 col-xs-12">
                     <p><i class="far fa-copyright pr-1"></i>Copyright Reserved to MNL by <a href="#">MNL</a></p>
                 </div>
-                <div>
-                    <div id="form-email" class="row">
+                <div class="col-6 col-s-12 col-xs-12">
+                    <div id="form-email" >
                         <input type="email" placeholder="Your Email address"><button>Subcribe</button>
                     </div>
                 </div>
