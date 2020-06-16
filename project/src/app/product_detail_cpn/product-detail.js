@@ -7,7 +7,9 @@ if (!number_amount) {
 }
 
 (function onLoad() {
-  let product_detail_item = JSON.parse(sessionStorage.getItem("product_detail_item"));
+  let product_detail_item = JSON.parse(
+    sessionStorage.getItem("product_detail_item")
+  );
   if (!product_detail_item) {
     return location.assign("../drugstore_cpn/drugstore.html");
   }
@@ -29,12 +31,13 @@ if (!number_amount) {
 })();
 
 function loadProductDetail(product) {
-  document.getElementById("product-detail").innerHTML =
-    `<div class="product-img">
+  document.getElementById(
+    "product-detail"
+  ).innerHTML = `<div class="product-img col-xs-12 col-s-8 col-6">
       <img src="${product.image}" class="card-img-top img-card"
         alt="${product.name}">
     </div>
-    <div class="product-content">
+    <div class="product-content col-xs-12 col-s-12 col-6">
       <div class="product-perform">
         <h2 class="title">${product.name}</h2>
         <p class="text-description">${product.description}</p>
@@ -53,7 +56,9 @@ function loadProductDetail(product) {
         <button type="button" class="btn-item" onclick="Add(number_amount)">+</button>
       </div>
       <div class="product-action">
-        <button type="button" class="btn btn-back" onclick="addToCart('${product.id}', number_amount)"><i class="fa fa-cart-plus" style="margin-right: 5px;color: #111c63;"></i>Thêm vào rỏ</button>
+        <button type="button" class="btn btn-back" onclick="addToCart('${
+          product.id
+        }', number_amount)"><i class="fa fa-cart-plus" style="margin-right: 5px;color: #111c63;"></i>Thêm vào rỏ</button>
         <button type="button" class="btn btn-add" onclick="goToStore()">Mua ngay</button>
       </div>
     </div>`;
@@ -101,25 +106,45 @@ function renderCart() {
   let total_bill = 0;
   if (!carts || carts.length === 0) {
     document.getElementById("total_bill").innerHTML = `${total_bill}đ`;
-    return (document.getElementById("cart_item").innerHTML = `<p class="card-text">Không có sản phẩm nào!</p>`);
+    return (document.getElementById(
+      "cart_item"
+    ).innerHTML = `<p class="card-text">Không có sản phẩm nào!</p>`);
   }
   document.getElementById("cart_item").innerHTML = "";
   carts.forEach((item) => {
     document.getElementById("cart_item").innerHTML += `<div class="item">
             <img src="${item.image}" class="item-img" />
             <span class="item-name">${item.name}</span>
-            <span class="item-price">${formatNumber(item.price, ".", ",")}đ</span>
+            <span class="item-price">${formatNumber(
+              item.price,
+              ".",
+              ","
+            )}đ</span>
             <div class="btn-group" role="group" aria-label="First group" style="background-color:#fff">
-                <button type="button" class="btn-item" onclick="countMinus('${item.id}')">-</button>
+                <button type="button" class="btn-item" onclick="countMinus('${
+                  item.id
+                }')">-</button>
                 <button type="button" class="btn-item" >${item.amount}</button>
-                <button type="button" class="btn-item" onclick="countAdd('${item.id}')">+</button>
+                <button type="button" class="btn-item" onclick="countAdd('${
+                  item.id
+                }')">+</button>
             </div>
-            <span class="item-total">${formatNumber(item.price * item.amount, ".", ",")}đ</span>
-            <button type="button" class="btn-action" onclick="deleteFromCart('${item.id}')">Xóa</button>
+            <span class="item-total">${formatNumber(
+              item.price * item.amount,
+              ".",
+              ","
+            )}đ</span>
+            <button type="button" class="btn-action" onclick="deleteFromCart('${
+              item.id
+            }')">Xóa</button>
         </div>`;
     total_bill += item.price * item.amount;
   });
-  document.getElementById("total_bill").innerHTML = `${formatNumber(total_bill, ".", ",")}đ`;
+  document.getElementById("total_bill").innerHTML = `${formatNumber(
+    total_bill,
+    ".",
+    ","
+  )}đ`;
 }
 
 function goToStore() {
@@ -224,4 +249,22 @@ window.onclick = function (e) {
 
 function onPay() {
   alert("Tính năng tạm thời bị khóa!");
+}
+function render_menu() {
+  document.getElementById("menu-reponse").style.display = "block";
+  document.getElementById("icon-nav").style.display = "none";
+  document.getElementById("active-icon-nav").style.display = "block";
+  document.getElementById("icon-nav").style.position = "absolute";
+  document.getElementById("icon-nav").style.opacity = 0;
+  document.getElementById("icon-nav").style.zIndex = -1;
+  document.getElementById("icon-nav").style.display = "none";
+  document.getElementById("active-icon-nav").style.zIndex = 9999;
+}
+function render_icon() {
+  document.getElementById("menu-reponse").style.display = "none";
+  document.getElementById("icon-nav").style.display = "block";
+  document.getElementById("active-icon-nav").style.display = "none";
+  document.getElementById("icon-nav").style.position = "relative";
+  document.getElementById("icon-nav").style.opacity = 1;
+  document.getElementById("icon-nav").style.zIndex = 9999;
 }

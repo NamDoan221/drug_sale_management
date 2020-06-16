@@ -20,12 +20,17 @@
         </div>
         <div id="menuRight">
             <div id="icon-nav">
-                <a href="#">
+                <a href="#" onclick="render_menu()">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+            <div id="active-icon-nav">
+                <a href="#" onclick="render_icon()">
                     <i class="fas fa-bars"></i>
                 </a>
             </div>
             <ul id="menu">
-                <li><a href="#about">Tổng quan</a></li>
+                <li><a href="#introduct">Tổng quan</a></li>
                 <li><a href="#services">Dịch vụ</a></li>
                 <li><a href="#portfolio">Cửa hàng</a></li>
                 <li><a href="#pricing">Thành viên</a></li>
@@ -36,20 +41,22 @@
                     <a><i class="fa fa-power-off" style="padding-right: 5px;"></i>Logout</a>
                 </li>
             </ul>
-            <ul id="menu-reponse">
-                <li><a href="#about">Tổng quan</a></li>
-                <li><a href="#services">Dịch vụ</a></li>
-                <li><a href="#portfolio">Cửa hàng</a></li>
-                <li><a href="#pricing">Thành viên</a></li>
-                <li><a href="#contact">Liên lạc</a></li>
-                <li><a href="../drugstore_cpn/drugstore.html">Nhà thuốc online</a></li>
-                <li id="login"><a href="../login_cpn/login.html"><i class="fa fa-power-off" style="padding-right: 5px;"></i>Login</a></li>
-                <li id="logout" onclick="onLogout()">
-                    <a><i class="fa fa-power-off" style="padding-right: 5px;"></i>Logout</a>
-                </li>
-            </ul>
+            
         </div>
+        <ul id="menu-reponse">
+            <li><a href="#introduct">Tổng quan</a></li>
+            <li><a href="#services">Dịch vụ</a></li>
+            <li><a href="#portfolio">Cửa hàng</a></li>
+            <li><a href="#pricing">Thành viên</a></li>
+            <li><a href="#contact">Liên lạc</a></li>
+            <li><a href="../drugstore_cpn/drugstore.html">Nhà thuốc online</a></li>
+            <li id="login"><a href="../login_cpn/login.html"><i class="fa fa-power-off" style="padding-right: 5px;"></i>Login</a></li>
+            <li id="logout" onclick="onLogout()">
+                <a><i class="fa fa-power-off" style="padding-right: 5px;"></i>Logout</a>
+            </li>
+        </ul>
     </div>
+    
     <div id="baner">
         <div class="img">
             <img src="https://cdn.jiohealth.com/pharmacy/web-banner/Delivery-Expand-web-banner_2.png"
@@ -92,7 +99,7 @@
                     <p><i class="fas fa-headset"></i> Hỗ trợ tư vấn dịch vụ</p>
                     <p><i class="fas fa-briefcase-medical"></i> Dịch vụ đa dạng</p>
                 </div>
-                <button id="btn">Khám phá các dịch vụ</button>
+                <button id="btn" href="#services">Khám phá các dịch vụ</button>
             </div>
             <div id="introRight" class="col-6 col-s-12 col-xs-12">
                 <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/not-feeling-well.svg"
@@ -275,7 +282,7 @@
                 </div>
                 <div class="col-5 col-s-12 col-xs-12">
                     <ul id="menuFooter">
-                        <li><a href="#about">Tổng quan</a></li>
+                        <li><a href="#introduct">Tổng quan</a></li>
                         <li><a href="#services">Dịch vụ</a></li>
                         <li><a href="#portfolio">Cửa hàng</a></li>
                         <li><a href="#pricing">Thành viên</a></li>

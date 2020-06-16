@@ -13,15 +13,26 @@
 
 <body>
     <div id="headerNavbar">
+        
         <div id="menuLeft">
             <a class="navbar-brand" href="../home_cpn/index.html">
                 <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/logo.svg"
                     alt="nhathuoc24h.com" width="140px" height="60px" /></a>
         </div>
         <div id="menuRight">
+            <div id="icon-nav">
+                <a href="#" onclick="render_menu()">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+            <div id="active-icon-nav">
+                <a href="#" onclick="render_icon()">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
             <ul id="menu">
                 <li class="nav-item">
-                    <a class="nav-link" href="../home_cpn/index.html">Tang chủ</a>
+                    <a class="nav-link" href="../home_cpn/index.html">Trang chủ</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../drugstore_cpn/drugstore.html">Nhà thuốc online</a>
@@ -34,9 +45,25 @@
                 </li>
             </ul>
         </div>
+        <ul id="menu-reponse">
+            <li class="nav-item">
+                <a class="nav-link" href="../home_cpn/index.html">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../drugstore_cpn/drugstore.html">Nhà thuốc online</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="renderCart()">
+                    <i class="fa fa-cart-plus" style="margin-right: 5px;color: #111c63;"></i>
+                    <i class="fas fa-circle" id="cart_mess"></i>
+                </a>
+            </li>
+        </ul>
     </div>
-    <hr style="padding: 50px ;">
-    <div class="product" id="product-detail"></div>
+    
+    <hr id="hr" style="padding: 30px;">
+    
+    <div class="product row" id="product-detail" ></div>
     <div class="note-box">
         <p id="title-rate">Thành phần</p>
         <p>Bao gồm:</p>
@@ -77,8 +104,8 @@
             <li>Tránh làm nhiễm bẩn đầu chai thuốc.</li>
         </ul>
     </div>
-    <div class="evaluate">
-        <div>
+    <div class="evaluate row">
+        <div class="col-5 col-s-9 col-xs-12">
             <p id="title-rate">Nhận xét</p>
             <div class="box-star">
                 <i class="fas fa-star"></i>
@@ -126,7 +153,7 @@
                     <i class="fas fa-star false"></i>
                     <i class="fas fa-star false"></i>
                 </div>
-                <div class="rate-right">
+                <div class="rate-right" >
                     <div class="rate" style="width: 0%;">
                         
                     </div>
@@ -165,7 +192,7 @@
             </div>
             <button type="button" class="btn btn-add" style="margin: 15px 0px;">Viết nhận xét</button>
         </div>
-        <div style="width:600px;margin-left: 50px;">
+        <div class="col-7 col-s-12 col-xs-12">
             <div>
                 <p id="name" style="font-weight: bold;">Phí Hữu Long</p>
                 <div class="default-star" style="margin-bottom: 10px;">
@@ -175,7 +202,7 @@
                     <i class="fas fa-star true"></i>
                     <i class="fas fa-star true"></i>
                 </div>
-                <p>Sản phẩm này chill phết</p>
+                <p>Sản phẩm này chill phết </p>
                 <p style="color: #888;">14/06/2020</p>
             </div>
             <hr style="margin: 15px 0px;">
@@ -207,8 +234,8 @@
         </div>
     </div>
     <footer>
-        <div class="row">
-            <div class="col-lg-4 col-md-4" style="width: 35%;">
+        <div class="row" style="padding: 40px;justify-content: space-around;">
+            <div class="box-footer col-4 col-s-6 col-xs-12" >
                 <div>
                     <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/logo.svg"
                         alt="nhathuoc24h.com" width="140px" height="70px" />
@@ -227,7 +254,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-md-3">
+            <div class="box-footer col-4 col-s-6 col-xs-12"> 
                 <ul id="sub-menu-footer">
                     <li><a href="#">Tất cả</a></li>
                     <li><a href="#">Thuốc bán theo chỉ định</a></li>
@@ -237,7 +264,7 @@
                     <li><a href="#">Dụng cụ y tế</a></li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-md-3">
+            <div class="box-footer col-4 col-s-6 col-xs-12">
                 <h3><b>Get In Touch</b></h3>
                 <ul style="padding: 0px;">
                     <li>
