@@ -1,5 +1,5 @@
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
@@ -10,11 +10,11 @@ body {
 
 #box {
     border-radius: 10px;
-    margin-top: 100px;
+    margin-top: 60px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
     padding: 30px;
-    width: 480px;
+    width: 420px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -35,14 +35,12 @@ body {
     margin: 10px;
 }
 
-.logo img {
-    border-radius: 50%;
-}
 
 
 #input input {
     border: none;
-    width: 100%;
+    width: 90%;
+    height: 25px;
     border-radius: 20px;
     outline: none;
     padding-left: 20px;
@@ -55,7 +53,7 @@ body {
     width: 80%;
     border-radius: 20px;
     margin-bottom: 15px;
-
+    height: 32px;
 }
 
 #check {
@@ -66,7 +64,7 @@ body {
 }
 
 #check label {
-    margin: 0px 0px 0px 5px;
+    margin: 0px 0px 3px 5px;
 }
 
 ._btn {
@@ -91,6 +89,46 @@ body {
     color: #112a42;
 }
 
-.toast-header-img {
-    border-radius: 50% !important;
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
 }
+
+ 
+a:hover{
+    color: rgb(119, 0, 255);
+    text-decoration: underline;
+}
+ 
+a:active{
+    color: white;
+    text-decoration: none;
+}
+
+.toast {
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 360px;
+    padding: 10px;
+    height: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+    opacity: 0;
+}
+
+.toast-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+ }
+
+ .close {
+     border: none;
+     background-color: #fff;
+ }
+ .close:hover {
+     color: red;
+ }

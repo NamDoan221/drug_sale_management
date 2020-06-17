@@ -7,10 +7,6 @@ if (loginStatus) {
   document.getElementById("login").style.display = "block";
 }
 
-function goToLoginCpn() {
-  location.assign("../login_cpn/login.html");
-}
-
 function onLogout() {
   const confirmResult = confirm("You definitely want to log out?");
   if (!confirmResult) {

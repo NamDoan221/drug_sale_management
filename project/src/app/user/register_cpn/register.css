@@ -1,5 +1,5 @@
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .container {
@@ -14,7 +14,7 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
     padding: 30px;
-    width: 480px;
+    width: 420px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -35,11 +35,10 @@ body {
     margin: 10px;
 }
 
-
-
 #input input {
     border: none;
-    width: 100%;
+    width: 90%;
+    height: 25px;
     border-radius: 20px;
     outline: none;
     padding-left: 20px;
@@ -51,8 +50,8 @@ body {
     border: 1px solid #ddd;
     width: 80%;
     border-radius: 20px;
-    margin-bottom: 15px;
-
+    margin-bottom: 25px;
+    height: 35px;
 }
 
 #check {
@@ -63,27 +62,26 @@ body {
 }
 
 #check label {
-    margin: 0px 0px 0px 5px;
+    margin: 0px 0px 3px 5px;
 }
 
-._btn {
+.btn {
     width: 80%;
     padding: 5px 0px;
     height: 35px;
     border-radius: 30px;
     border: none;
     outline: none !important;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.btnCreateAcc {
+.btnRegister {
     background-color: #0aa072;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 20px;
     color: #fff;
 }
 
-.btnSigup {
-    border: 1px solid #296394;
+.btnLogin {
     background-color: #fff;
-    color: #112a42;
+    color: #0aa072;
 }
