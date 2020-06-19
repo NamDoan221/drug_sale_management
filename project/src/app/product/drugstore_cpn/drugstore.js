@@ -36,7 +36,11 @@ function formatNumber(nStr, decSeperate, groupSeperate) {
     return x1 + x2;
 }
 
-function logout() {
+function onLogout() {
+    const confirmResult = confirm("Bạn muốn đăng xuất?");
+    if (!confirmResult) {
+        return;
+    }
     localStorage.removeItem("loginStatus");
     location.reload();
 }
@@ -49,7 +53,7 @@ function logout() {
     document.getElementById("user_img").innerHTML = `
         <img src="${user.user_image}" alt="" width="40px" height="40px" style="border-radius: 50%;">
             <ul class="user-action">
-                <li class="item-action" onclick="logout()" style="padding: 5px;">
+                <li class="item-action" onclick="onLogout()" style="padding: 5px;">
                     <i class="fa fa-power-off" style="padding-right: 5px;"></i>
                     Đăng xuất
                 </li>
@@ -210,5 +214,9 @@ window.onclick = function (e) {
 }
 
 function onPay() {
+    let user = JSON.parse(localStorage.getItem("loginStatus"));
+    if (!user) {
+        return alert("Vui lòng đăng nhập để thực hiện thanh toán!");
+    }
     alert("Tính năng tạm thời bị khóa!");
-  }
+}

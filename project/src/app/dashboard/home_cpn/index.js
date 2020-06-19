@@ -8,13 +8,14 @@ if (loginStatus) {
 }
 
 function onLogout() {
-  const confirmResult = confirm("You definitely want to log out?");
+  const confirmResult = confirm("Bạn muốn đăng xuất?");
   if (!confirmResult) {
     return;
   }
   localStorage.removeItem("loginStatus");
   location.reload();
 }
+
 function render_menu() {
   document.getElementById("menu-reponse").style.display = "block";
   document.getElementById("icon-nav").style.display = "none";

@@ -248,8 +248,13 @@ window.onclick = function (e) {
 };
 
 function onPay() {
+  let user = JSON.parse(localStorage.getItem("loginStatus"));
+  if (!user) {
+    return alert("Vui lòng đăng nhập để thực hiện thanh toán!");
+  }
   alert("Tính năng tạm thời bị khóa!");
 }
+
 function render_menu() {
   document.getElementById("menu-reponse").style.display = "block";
   document.getElementById("icon-nav").style.display = "none";
@@ -260,6 +265,7 @@ function render_menu() {
   document.getElementById("icon-nav").style.display = "none";
   document.getElementById("active-icon-nav").style.zIndex = 9999;
 }
+
 function render_icon() {
   document.getElementById("menu-reponse").style.display = "none";
   document.getElementById("icon-nav").style.display = "block";

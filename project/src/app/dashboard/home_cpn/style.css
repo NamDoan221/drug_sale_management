@@ -2,7 +2,7 @@ body {
   font: 400 15px sans-serif;
   line-height: 1.8;
   color: #000;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
@@ -99,7 +99,7 @@ html {
   }
 
   #form-email {
-    display: block !important
+    display: block !important;
   }
 
   /* For mobile: */
@@ -158,7 +158,7 @@ html {
     clear: both;
     display: block;
   }
-  #menu{
+  #menu {
     display: none !important;
   }
   #introductLeft img {
@@ -221,7 +221,7 @@ html {
     z-index: 9999;
     width: 100%;
     border-bottom: 1px solid #ddd;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, .1);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
   }
   #boxInput {
     padding: 0px !important;
@@ -230,7 +230,7 @@ html {
   #icon-nav {
     display: block !important;
     line-height: 60px;
-}
+  }
   /* For tablets: */
   .col-s-1 {
     width: 8.33%;
@@ -282,20 +282,19 @@ html {
 }
 
 @media only screen and (min-width: 1100px) {
-  
   .row {
     clear: both;
     display: flex;
   }
-  #icon-nav{
+  #icon-nav {
     display: none !important;
     line-height: 60px;
   }
-  #active-icon-nav{
+  #active-icon-nav {
     display: none !important;
     line-height: 60px;
   }
-  #menu-reponse{
+  #menu-reponse {
     display: none !important;
   }
   /* For desktop: */
@@ -362,22 +361,22 @@ html {
   z-index: 9999;
   width: 100%;
   border-bottom: 1px solid #ddd;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, .1);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
 }
 
 /*styles menu----------->*/
-#menu-reponse{
+#menu-reponse {
   width: 100%;
   display: none;
   background-color: #fff;
   position: absolute;
   margin-top: 60px;
 }
-#menu-reponse li{
+#menu-reponse li {
   list-style-type: none;
-  margin:10px;
+  margin: 10px;
 }
-#menu-reponse li a{
+#menu-reponse li a {
   padding: 5px 30px;
   width: 100%;
   text-decoration: none;
@@ -388,7 +387,7 @@ html {
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   transition-delay: 0s;
 }
-#menu-reponse li a:hover{
+#menu-reponse li a:hover {
   width: 100%;
   text-decoration: none;
   background-color: #f5f6fa;
@@ -410,16 +409,16 @@ html {
   padding: 3px;
   font-size: 25px;
 }
-#active-icon-nav{
+#active-icon-nav {
   display: none;
   line-height: 60px;
 }
-#active-icon-nav a i{
+#active-icon-nav a i {
   border-radius: 3px;
   border: 1px solid #ddd;
   padding: 3px;
   font-size: 25px;
-  color: #4CE1C6;
+  color: #4ce1c6;
 }
 #menu {
   display: flex;
@@ -479,7 +478,8 @@ html {
 }
 
 /*styles introduct services----------->*/
-#introService {}
+#introService {
+}
 
 #introLeft {
   display: block;
@@ -488,7 +488,8 @@ html {
   padding: 100px;
 }
 
-#introRight {}
+#introRight {
+}
 
 #introTitle-first {
   font-size: 45px;
@@ -519,7 +520,7 @@ html {
 }
 
 #btn {
-  background-color: #4CE1C6;
+  background-color: #4ce1c6;
   height: 40px;
   padding: 0px 15px;
   border: none;
@@ -576,7 +577,6 @@ html {
 #introductLeft {
   display: flex;
   align-items: center;
-
 }
 
 #introductLeft img {
@@ -603,7 +603,7 @@ html {
   display: flex;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, .1);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
   transition-property: all;
   transition-duration: 0.6s;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -640,7 +640,7 @@ html {
 }
 
 #contentService {
-  margin: 0px 120px;
+  margin: 0px 50px;
   display: flex;
 }
 
@@ -648,11 +648,11 @@ html {
 #contentPortfolio {
   padding-bottom: 50px;
 }
-#portfolio{
+#portfolio {
   padding-top: 50px;
 }
 .boxPortfolio {
-  box-shadow: 0 5px 19px rgba(0, 0, 0, .1);
+  box-shadow: 0 5px 19px rgba(0, 0, 0, 0.1);
   transition-property: all;
   transition-duration: 0.6s;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -711,7 +711,6 @@ html {
   padding: 5px;
   border: 1px solid #30b5a1;
   outline: none;
-
 }
 
 #boxInput textarea {
@@ -731,14 +730,13 @@ html {
   outline: none;
 }
 
-
-
 #boxLeft p {
   color: #111c63;
   font-size: 18px;
 }
 
-#box {}
+#box {
+}
 
 /*styles footer----------->*/
 footer {
@@ -775,7 +773,6 @@ footer li a {
 }
 
 #footer-email {
-
   border-top: 1px solid rgb(212, 212, 212);
   padding: 30px 0px;
 }
@@ -813,7 +810,8 @@ footer li a {
   outline: none;
 }
 
-#menuFooter {}
+#menuFooter {
+}
 
 #menuFooter li a {
   text-decoration: none;

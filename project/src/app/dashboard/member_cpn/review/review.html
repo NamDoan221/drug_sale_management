@@ -1,58 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Review</title>
-    <link rel="stylesheet" href="./review.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="./review.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="container">
-        <div class="card card-pk">
-            <div class="head">
-                <span>Review phòng khám</span>
-            </div>
-            <div class="body">
-                <div class="star-vote">
-                    <i class="fas fa-star true"></i>
-                    <i class="fas fa-star true"></i>
-                    <i class="fas fa-star true"></i>
-                    <i class="fas fa-star true"></i>
-                    <i class="fas fa-star true"></i>
-                </div>
-            </div>
-            <div class="foot txt">
-                <span>(chọn số sao bạn dành cho phòng khám)</span>
-            </div>
+      <div class="card card-pk">
+        <div class="head">
+          <span>Review phòng khám</span>
         </div>
-        <div class="card card-bs">
-            <div class="head">
-                <span>Chọn bác sĩ điều trị cho bạn</span>
-            </div>
-            <div class="body">
-                <div class="text-review">
-                    <span>Review bác sĩ</span>
-                </div>
-                <div class="text-start txt">
-                    <span>(chọn bác sĩ điều trị cho bạn)</span>
-                </div>
-                <div class="star-vote">
-                    <i class="fas fa-star false"></i>
-                    <i class="fas fa-star false"></i>
-                    <i class="fas fa-star false"></i>
-                    <i class="fas fa-star false"></i>
-                    <i class="fas fa-star false"></i>
-                </div>
-            </div>
-            <div class="foot">
-                <textarea class="comment" id="comments" name="comments" placeholder="Để lại bình luận của bạn"
-                    rows="5"></textarea><br />
-                <button class="btn-up">Cập nhật</button>
-            </div>
+        <div class="body">
+          <div class="star-vote">
+            <i class="fas fa-star true"></i>
+            <i class="fas fa-star true"></i>
+            <i class="fas fa-star true"></i>
+            <i class="fas fa-star true"></i>
+            <i class="fas fa-star true"></i>
+          </div>
         </div>
+        <div class="foot txt">
+          <span>(chọn số sao bạn dành cho phòng khám)</span>
+        </div>
+      </div>
+      <div class="card card-bs">
+        <div class="head">
+          <span>Chọn bác sĩ điều trị cho bạn</span>
+        </div>
+        <div class="body">
+          <div class="text-review">
+            <span>Review bác sĩ</span>
+          </div>
+          <div class="text-start txt">
+            <span>(chọn bác sĩ điều trị cho bạn)</span>
+          </div>
+          <div class="star-vote">
+            <i class="fas fa-star false"></i>
+            <i class="fas fa-star false"></i>
+            <i class="fas fa-star false"></i>
+            <i class="fas fa-star false"></i>
+            <i class="fas fa-star false"></i>
+          </div>
+        </div>
+        <div class="foot">
+          <textarea
+            class="comment"
+            id="comments"
+            name="comments"
+            placeholder="Để lại bình luận của bạn"
+            rows="8"
+          ></textarea
+          ><br />
+          <button class="btn-up">Cập nhật</button>
+        </div>
+      </div>
     </div>
-</body>
+    <footer>
+      <div class="row" style="padding: 40px; justify-content: space-around;">
+        <div class="box-footer col-4 col-s-6 col-xs-12">
+          <div>
+            <img
+              src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/logo.svg"
+              alt="nhathuoc24h.com"
+              width="140px"
+              height="70px"
+            />
+          </div>
+          <p>
+            Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad
+            eos obcaecati tenetur veritatis eveniet distinctio possimus.
+          </p>
+          <ul id="contact-social">
+            <li>
+              <a href="#"><i class="fab fa-facebook-square"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-twitter-square"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="box-footer col-4 col-s-6 col-xs-12">
+          <ul id="sub-menu-footer">
+            <li><a href="#">Tất cả</a></li>
+            <li><a href="#">Thuốc bán theo chỉ định</a></li>
+            <li><a href="#">Thuốc đặc trị</a></li>
+            <li><a href="#">Thực phẩm chức năng</a></li>
+            <li><a href="#">Dược mỹ phẩm</a></li>
+            <li><a href="#">Dụng cụ y tế</a></li>
+          </ul>
+        </div>
+        <div class="box-footer col-4 col-s-6 col-xs-12">
+          <h3><b>Get In Touch</b></h3>
+          <ul style="padding: 0px;">
+            <li>
+              <p>
+                <i class="fas fa-envelope-square pr-2"></i>Support Available for
+                24/7
+              </p>
+            </li>
+            <li><a href="#">Privacy Policy</a><b>Support@email.com</b></li>
+            <li>Mon to Fri : 08:30 - 18:00</li>
+            <li>
+              <a href="#"
+                ><b><i class="fas fa-phone pr-1"></i>+23-456-6588</b></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
