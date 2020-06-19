@@ -1,134 +1,131 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #box {
-    border-radius: 10px;
-    margin-top: 60px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 10px;
-    padding: 30px;
-    width: 420px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
+  border-radius: 10px;
+  margin-top: 120px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  padding: 30px;
+  width: 420px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 #box p {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 #box .item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #box .logo p {
-    margin: 10px;
+  margin: 10px;
 }
 
-
-
 #input input {
-    border: none;
-    width: 90%;
-    height: 25px;
-    border-radius: 20px;
-    outline: none;
-    padding-left: 20px;
-    margin: 3px 0px;
+  border: none;
+  width: 90%;
+  height: 25px;
+  border-radius: 20px;
+  outline: none;
+  padding-left: 20px;
+  margin: 3px 0px;
 }
 
 #input {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    width: 80%;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    height: 32px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 80%;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  height: 32px;
 }
 
 #check {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 #check label {
-    margin: 0px 0px 3px 5px;
+  margin: 0px 0px 3px 5px;
 }
 
 ._btn {
-    width: 80%;
-    padding: 5px 0px;
-    height: 35px;
-    border-radius: 30px;
-    border: none;
-    outline: none !important;
+  width: 80%;
+  padding: 5px 0px;
+  height: 35px;
+  border-radius: 30px;
+  border: none;
+  outline: none !important;
 }
 
 .btnLogin {
-    background-color: #0aa072;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 20px;
-    color: #fff;
+  background-color: #0aa072;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 20px;
+  color: #fff;
 }
 
 .btnSigup {
-    border: 1px solid #296394;
-    background-color: #fff;
-    color: #112a42;
+  border: 1px solid #296394;
+  background-color: #fff;
+  color: #112a42;
 }
 
 a {
-    color: #007bff;
-    text-decoration: none;
-    background-color: transparent;
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
 }
 
- 
-a:hover{
-    color: rgb(119, 0, 255);
-    text-decoration: underline;
+a:hover {
+  color: rgb(119, 0, 255);
+  text-decoration: underline;
 }
- 
-a:active{
-    color: white;
-    text-decoration: none;
+
+a:active {
+  color: white;
+  text-decoration: none;
 }
 
 .toast {
-    background-color: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 360px;
-    padding: 10px;
-    height: 85px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 10px;
-    opacity: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 360px;
+  padding: 10px;
+  height: 85px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 10px;
+  opacity: 0;
 }
 
 .toast-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
- }
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
- .close {
-     border: none;
-     background-color: #fff;
- }
- .close:hover {
-     color: red;
- }
+.close {
+  border: none;
+  background-color: #fff;
+}
+.close:hover {
+  color: red;
+}
