@@ -1,0 +1,471 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font: 400 15px sans-serif;
+  line-height: 1.8;
+  color: #000;
+  font-family: "Exo", sans-serif;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000 !important;
+}
+
+/* Navbar */
+
+#headerNavbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  background-color: #fff;
+  z-index: 9999;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+#menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0px;
+}
+
+#menu li {
+  list-style-type: none;
+  margin: 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+#menu li a {
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #fff;
+  color: #111c63;
+  border-radius: 30px;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-delay: 0s;
+}
+
+#menu li a:hover {
+  padding: 5px 20px;
+  text-decoration: none;
+  background-color: #f5f6fa;
+  border-radius: 30px;
+  font-weight: 600;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-delay: 0s;
+}
+
+#menu li a:focus {
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #f5f6fa;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+/* content */
+
+.container {
+  padding-top: 70px;
+  min-height: 100vh;
+}
+
+.card-service-background {
+  background-image: url(https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-19-16-06-13/pediatric-background-mb-lnds.2e66b2ab93524f8ebcad.svg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-color: transparent;
+  background-size: 100% 100%;
+  z-index: 0;
+  margin-top: 100px 0px;
+}
+
+.care-service-banner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.top-care-service-content {
+  width: 40%;
+  flex-grow: 1;
+  padding: 50px 0px 0px 30px;
+  margin: 30px;
+}
+.go-back a {
+  color: #959595;
+  font-size: 18px;
+}
+
+.inner .title {
+  color: #111c63;
+  font-size: 1.5rem;
+}
+
+.go-back a i {
+  margin-right: 10px;
+}
+
+.sub-text {
+  padding: 5px 20px;
+  font-size: 18px;
+  color: #251b1b;
+}
+
+.care-service-price {
+  display: flex;
+  flex-wrap: wrap;
+}
+.col-left {
+  padding-right: 20px;
+  border-right: 3px solid #111c63;
+}
+.col-right {
+  margin-left: 20px;
+}
+.col-left .price-original {
+  font-size: 18px;
+}
+
+.col-left .price {
+  font-size: 40px;
+  color: #111c63;
+  font-weight: 600;
+}
+
+.col-right .btn-teal {
+  border: none;
+  background-color: #4ce1c6;
+  line-height: 35px;
+  color: #fff;
+  outline: none;
+  padding: 5px 50px;
+  border-radius: 30px;
+  transition: all 0.3s ease-in;
+}
+
+.btn-teal:hover {
+  box-shadow: 0 0 0 0.2rem rgba(76, 225, 198, 0.25);
+  background-color: #30b5a1;
+}
+.banner-image {
+  flex-grow: 1;
+  width: 50%;
+  margin: 30px;
+}
+
+.banner-image img {
+  width: 100%;
+  height: auto;
+}
+
+.common-conditions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title-container {
+  margin: 30px;
+  flex-grow: 1;
+  width: 45%;
+  color: #ffffff;
+  font-size: 30px;
+}
+img.top {
+  width: 30px;
+  position: relative;
+  left: 75%;
+}
+
+img.bottom {
+  width: 60px;
+  position: relative;
+  left: 19%;
+  top: -2rem;
+  transform: rotate(18deg);
+}
+
+.info-container {
+  width: 45%;
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #fff;
+  margin: 30px;
+}
+
+/*==============scroll doctor list================*/
+.meet-docter {
+  background-color: #fff;
+  padding: 30px 0px;
+}
+.meet-docter-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  padding: 20px 10px;
+}
+.meet-docter-title span {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 30px;
+}
+.card {
+  max-width: 20%;
+  min-width: 300px;
+  /* flex-grow: 1; */
+  margin: 5px;
+  box-shadow: 0 5px 19px rgba(0, 0, 0, 0.1);
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-delay: 0s;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 20px;
+}
+.img-card {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.card-body {
+  padding: 0px 10px;
+}
+.card-title {
+  font-size: 17px;
+}
+.card-price i {
+  color: #ffbd3d;
+}
+.card-footer {
+  display: flex;
+  padding: 10px;
+}
+.btn {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 5px;
+  flex-grow: 1;
+  margin: 0 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-add {
+  color: #fff;
+  font-weight: bold;
+  background-color: #4ce1c6;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-delay: 0s;
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+.btn-add:hover {
+  background-color: #30b5a1;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-delay: 0s;
+  box-shadow: 0 0 0 0.2rem rgba(76, 225, 198, 0.25);
+}
+
+.btn-detail {
+  color: #111c63;
+  font-weight: bold;
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+  background-color: #fff;
+  border: 1px solid #4ce1c6;
+}
+
+.btn-detail:hover {
+  box-shadow: 0 0 0 0.2rem rgba(76, 225, 198, 0.25);
+  background-color: #fff;
+}
+/*==============scroll info list================*/
+.info-heart {
+  padding: 30px 0px;
+}
+.info-heart-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 30px;
+}
+.info-heart-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  padding: 20px 10px;
+}
+.card-info-heart {
+  background: url(https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/background-exam-small.6a3c1941f0aed684fc65.svg)
+    center bottom no-repeat #fff;
+  max-width: 20%;
+  height: 400px;
+  min-width: 300px;
+  /* flex-grow: 1; */
+  margin: 5px;
+  box-shadow: 0 5px 19px rgba(0, 0, 0, 0.1);
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-delay: 0s;
+  border-radius: 10px;
+  margin: 20px;
+}
+.card-body-info {
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.card-body-info p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #111c63;
+  margin-top: 20px;
+}
+/*==============scroll bar================*/
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  cursor: default;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: rgba(78, 78, 78, 0.15);
+  box-shadow: inset 1px 1px 2px 0 rgba(78, 78, 78, 0.3);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  background: #fff;
+}
+/*styles footer----------->*/
+footer {
+  background: #1f3441;
+  padding: 40px 40px;
+  color: #f5f6fa;
+  font-family: "Exo", sans-serif;
+  font-weight: 600;
+}
+.row-footer {
+  padding: 0px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.footer-box {
+  margin: 20px;
+  flex-grow: 1;
+  width: 30%;
+}
+footer li {
+  list-style-type: none;
+  line-height: 35px;
+}
+
+footer li a:hover {
+  text-decoration: none;
+  color: rgb(163, 33, 33);
+  width: 100%;
+}
+
+footer li a {
+  color: #f5f6fa;
+  transition: 0.5s;
+}
+
+#contact-social li {
+  font-size: 40px;
+  padding: 10px;
+}
+
+#contact-social li {
+  display: inline-table;
+}
+
+#footer-email {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-top: 1px solid rgb(212, 212, 212);
+  padding: 30px 0px;
+}
+
+#footer-email input {
+  outline: none;
+}
+
+#form-email {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 12px 6px 25px;
+  border: 1px solid #223a66;
+  border-radius: 50px;
+  background-color: #fff;
+}
+
+#form-email input {
+  border: none;
+}
+
+#form-email button {
+  padding: 10px 40px 10px 40px;
+  border-radius: 50px;
+  border: none;
+  background: #e12454;
+  color: #f5f6fa;
+  border-color: #e12454;
+  transition: 0.5s;
+  font-weight: 700;
+}
+
+#form-email button:hover {
+  background: #223a66;
+  outline: none;
+}
+
+#menuFooter {
+}
+
+#menuFooter li a {
+  text-decoration: none;
+  padding: 10px 15px;
+  width: 100px;
+  justify-content: space-between;
+}
