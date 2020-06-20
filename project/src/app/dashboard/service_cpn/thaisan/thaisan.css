@@ -376,6 +376,12 @@ img.bottom {
   padding: 10px;
 }
 
+.ts {
+  background: url(https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/background-exam-small.6a3c1941f0aed684fc65.svg)
+    center bottom no-repeat #fff;
+  background-size: contain;
+}
+
 .card-explain {
   padding: 20px 60px;
 }
