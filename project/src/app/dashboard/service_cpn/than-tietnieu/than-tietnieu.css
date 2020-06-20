@@ -1,0 +1,244 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font: 400 15px sans-serif;
+  line-height: 1.8;
+  color: #000;
+  font-family: "Exo", sans-serif;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000 !important;
+}
+
+/* Navbar */
+
+#headerNavbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  background-color: #fff;
+  z-index: 9999;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+#menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0px;
+}
+
+#menu li {
+  list-style-type: none;
+  margin: 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+#menu li a {
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #fff;
+  color: #111c63;
+  border-radius: 30px;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-delay: 0s;
+}
+
+#menu li a:hover {
+  padding: 5px 20px;
+  text-decoration: none;
+  background-color: #f5f6fa;
+  border-radius: 30px;
+  font-weight: 600;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-delay: 0s;
+}
+
+#menu li a:focus {
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #f5f6fa;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+/* content */
+
+.container {
+  padding-top: 70px;
+  min-height: 100vh;
+}
+
+.card-service-background {
+  background-image: url(https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-19-16-06-13/nephrology-background.cf50105f46e332e44b05.svg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-color: transparent;
+  background-size: 100% 110%;
+  z-index: 0;
+}
+
+.care-service-banner {
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.top-care-service-content {
+  flex-grow: 1;
+  padding: 50px 100px;
+}
+.go-back a {
+  color: #959595;
+  font-size: 18px;
+}
+
+.inner .title {
+  color: #111c63;
+  font-size: 1.5rem;
+}
+
+.go-back a i {
+  margin-right: 10px;
+}
+
+.sub-text {
+  padding: 5px 20px;
+  font-size: 18px;
+  color: #251b1b;
+}
+
+.care-service-price {
+  display: flex;
+  align-items: center;
+}
+.col-left {
+  padding-right: 20px;
+  border-right: 3px solid #111c63;
+}
+.col-right {
+  margin-left: 20px;
+}
+.col-left .price-original {
+  font-size: 18px;
+}
+
+.col-left .price {
+  font-size: 40px;
+  color: #111c63;
+  font-weight: 600;
+}
+
+.col-right .btn-teal {
+  border: none;
+  background-color: #4ce1c6;
+  line-height: 35px;
+  color: #fff;
+  outline: none;
+  padding: 5px 50px;
+  border-radius: 30px;
+  transition: all 0.3s ease-in;
+}
+
+.btn-teal:hover {
+  box-shadow: 0 0 0 0.2rem rgba(76, 225, 198, 0.25);
+  background-color: #30b5a1;
+}
+.banner-image {
+  flex-grow: 1;
+}
+
+.banner-image img {
+  width: 700px;
+  height: 450px;
+}
+
+.common-conditions {
+  display: flex;
+}
+
+.title-container {
+  width: 74%;
+  padding: 80px 40px;
+  color: #ffffff;
+  font-size: 30px;
+}
+img.top {
+  width: 30px;
+  position: relative;
+  left: 75%;
+}
+
+img.bottom {
+  width: 60px;
+  position: relative;
+  left: 19%;
+  top: -2rem;
+  transform: rotate(18deg);
+}
+
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 30px;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #fff;
+}
+
+.condition-name-button {
+  height: 60px;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px 30px 15px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.condition-name-button img {
+  margin-right: 1rem;
+}
+/*==============scroll bar================*/
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  cursor: default;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: rgba(78, 78, 78, 0.15);
+  box-shadow: inset 1px 1px 2px 0 rgba(78, 78, 78, 0.3);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  background: #fff;
+}
