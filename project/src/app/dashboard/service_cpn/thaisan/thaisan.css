@@ -93,7 +93,7 @@ a:hover {
 }
 
 .card-service-background {
-  background-image: url(https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-19-16-06-13/nephrology-background.cf50105f46e332e44b05.svg);
+  background-image: url(https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-19-16-06-13/maternity-background.d3c672ffa4c4a35e81c6.svg);
   background-repeat: no-repeat;
   background-position: bottom right;
   background-color: transparent;
@@ -211,7 +211,7 @@ img.bottom {
   display: flex;
   flex-wrap: wrap;
   padding: 10px 30px;
-  align-content: center;
+  align-content: baseline;
   justify-content: space-evenly;
   align-items: center;
   color: #fff;
@@ -383,7 +383,7 @@ img.bottom {
 .explain-header {
   font-size: 1.5rem;
   font-weight: 600;
-  height: 100px;
+  height: 140px;
 }
 
 .explain-body {

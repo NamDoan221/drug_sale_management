@@ -101,6 +101,7 @@ footer {
 .box-footer {
   padding: 20px;
   width: 55%;
+  text-align: center;
 }
 
 footer li {
