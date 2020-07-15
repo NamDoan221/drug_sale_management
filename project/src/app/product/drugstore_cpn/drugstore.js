@@ -45,11 +45,26 @@ function onLogout() {
     location.reload();
 }
 
+function setCookie(name,value,days) {
+    console.log("aaa");
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+  }
+
 (function loadUser() {
     let user = JSON.parse(localStorage.getItem("loginStatus"));
     if (!user) {
         return;
     }
+    document.getElementById("user-id").value = user.id;
+    document.getElementById("user-name").value = user.phoneNumber;
+    setCookie('user_id', user.id, 7);
+    setCookie('user_name', user.phoneNumber, 7);
     document.getElementById("user_img").innerHTML = `
         <img src="${user.user_image}" alt="" width="40px" height="40px" style="border-radius: 50%;">
             <ul class="user-action">

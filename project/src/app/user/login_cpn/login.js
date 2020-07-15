@@ -1,23 +1,27 @@
 var users = [
   {
+    id:"asdgayq8238-2he",
     img:
       "https://thuthuatnhanh.com/wp-content/uploads/2019/08/anh-girl-deo-kinh-xinh-dep-580x580.jpg",
     phoneNumber: "0968339344",
     password: "long13032000",
   },
   {
+    id:"asdgeeq8238-ffhe",
     img:
       "https://thuthuatnhanh.com/wp-content/uploads/2019/08/anh-gai-xinh-deo-kinh-nhu-thien-than-580x580.jpg",
     phoneNumber: "0983278814",
     password: "manh08042k",
   },
   {
+    id:"sdfigayq8238-2he",
     img:
       "https://thuthuatnhanh.com/wp-content/uploads/2019/08/anh-con-gai-deo-kinh-de-thuong-580x580.jpg",
     phoneNumber: "0968265814",
     password: "nam22012000",
   },
   {
+    id:"asdgayq8sfi-2he",
     img:
       "https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-my-nhan-trung-quoc-326x580.jpg",
     phoneNumber: "nambaby",
@@ -29,6 +33,7 @@ function onLogin() {
   var isUser = {
     status: false,
     user_image: "",
+    phoneNumber: ""
   };
   var user_input = {
     phoneNumber: document.getElementById("sdt").value,
@@ -42,7 +47,9 @@ function onLogin() {
     ) {
       isUser = {
         status: true,
+        id: `${users[index].id}`,
         user_image: `${users[index].img}`,
+        phoneNumber: `${users[index].phoneNumber}`
       };
       break;
     }
