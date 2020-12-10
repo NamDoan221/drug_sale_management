@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./login.css">
 </head>
 
-<body onload="onLoad()">
+<body>
     <div class="container">
         <div id="box">
             <div class="logo item">
@@ -18,13 +18,32 @@
             </div>
             <div class="content item">
                 <p style="font-size: 13px;">Đăng nhập để mua thuốc theo yêu cầu hoặc theo sự chỉ dẫn của bác sĩ</p>
-                <div id="input"><input type="text" placeholder="Số điện thoại" id="sdt" /></div>
-                <div id="input"><input type="password" placeholder="Mật khẩu" id="pass" /></div>
-                <div id="check">
-                    <input type="checkbox" id="remember_pass" />
-                    <label for="remember_pass">Nhớ mật khẩu</label>
-                </div>
-                <button class="_btn btnLogin" onclick="onLogin()">Đăng nhập</button>
+                <form method="POST" class="form">
+                    <div id="input"><input type="text" placeholder="Số điện thoại" id="sdt" name="username" /></div>
+                    <div id="input"><input type="password" placeholder="Mật khẩu" id="pass" name="password" /></div>
+                    <div id="check">
+                        <input type="checkbox" id="remember_pass" />
+                        <label for="remember_pass">Nhớ mật khẩu</label>
+                    </div>
+                    <button type="submit" name="login" class="_btn btnLogin">Đăng nhập</button>
+                    <?php
+                        if (isset($_POST['login'])){
+                        $username=$_POST['username'];
+                        $password=$_POST['password'];
+                        
+                        echo $password;
+                        echo $username; 
+                        // Create connection
+                        require '../../connect.php';
+                        $query=mysqli_query($conn,"SELECT * FROM `user` WHERE username='$username' AND password='$password'");
+                        $row=mysqli_fetch_assoc($query);
+                        if ($row) {
+                            echo '<script language="javascript">window.location="index.php";</script>';
+                        }
+                        $conn->close();
+                        }
+                        ?>
+                </form>
                 <button class="_btn btnSigup" onclick="onRegister()">Tạo tài khoản</button>
                 <div style="width: 80%;text-align: center;margin-top: 20px;">
                     <a href="">Quên mật khẩu</a>
@@ -46,6 +65,6 @@
         </div>
     </div>
 </body>
-<script src="./login.js"></script>
+<!-- <script src="./login.js"></script> -->
 
 </html>

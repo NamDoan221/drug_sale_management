@@ -18,11 +18,18 @@
   </head>
 
   <body>
+  <?php
+    // Kết nối Database
+    include '../../connect.php';
+    $id=$_GET['id'];
+    $query=mysqli_query($conn,"select * from `product` where id='$id'");
+    $row=mysqli_fetch_assoc($query);
+    ?>
     <div id="headerNavbar">
       <div id="menuLeft">
-        <a class="navbar-brand" href="../../dashboard/home_cpn/index.html">
+        <a class="navbar-brand" href="../../dashboard/home_cpn/index.php">
           <img
-            src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/logo.svg"
+            src="https://cdn.jiohealth.com/pharmacy/product/asset/images/navJioLogo@3x.png"
             alt="nhathuoc24h.com"
             width="140px"
             height="60px"
@@ -41,12 +48,12 @@
         </div>
         <ul id="menu">
           <li class="nav-item">
-            <a class="nav-link" href="../../dashboard/home_cpn/index.html"
+            <a class="nav-link" href="../../dashboard/home_cpn/index.php"
               >Trang chủ</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../drugstore_cpn/drugstore.html"
+            <a class="nav-link" href="../drugstore_cpn/drugstore.php"
               >Nhà thuốc online</a
             >
           </li>
@@ -63,12 +70,12 @@
       </div>
       <ul id="menu-reponse">
         <li class="nav-item">
-          <a class="nav-link" href="../../dashboard/home_cpn/index.html"
+          <a class="nav-link" href="../../dashboard/home_cpn/index.php"
             >Trang chủ</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../drugstore_cpn/drugstore.html"
+          <a class="nav-link" href="../drugstore_cpn/drugstore.php"
             >Nhà thuốc online</a
           >
         </li>
@@ -86,7 +93,37 @@
 
     <hr id="hr" style="padding: 30px;" />
 
-    <div class="product row" id="product-detail"></div>
+    <div class="product row">
+      <div class="product-img col-xs-12 col-s-8 col-6">
+        <img src="<?php echo $row['image']; ?>" class="card-img-top img-card"
+          alt="<?php echo $row['name']; ?>">
+      </div>
+      <div class="product-content col-xs-12 col-s-12 col-6">
+        <div class="product-perform">
+          <h2 class="title"><?php echo $row['name']; ?></h2>
+          <p class="text-description"><?php echo $row['description']; ?></p>
+          <div class="box-star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="text-price"><?php echo $row['price']; ?>vnd</p>
+        </div>
+        <div class="btn-group" role="group" aria-label="First group" style="background-color:#fff">
+          <button type="button" class="btn-item" onclick="Minus(number_amount)">-</button>
+          <button type="button" class="btn-item" >1</button>
+          <button type="button" class="btn-item" onclick="Add(number_amount)">+</button>
+        </div>
+        <div class="product-action">
+          <!-- <button type="button" class="btn btn-back" onclick="addToCart('${
+            product.id
+          }', number_amount)"><i class="fa fa-cart-plus" style="margin-right: 5px;color: #111c63;"></i>Thêm vào rỏ</button>
+          <button type="button" class="btn btn-add" onclick="goToStore()">Mua ngay</button> -->
+        </div>
+      </div>
+    </div>
     <div class="note-box">
       <p id="title-rate">Thành phần</p>
       <p>Bao gồm:</p>
@@ -333,6 +370,6 @@
         </div>
       </div>
     </div>
-    <script src="./product-detail.js"></script>
+    <!-- <script src="./product-detail.js"></script> -->
   </body>
 </html>

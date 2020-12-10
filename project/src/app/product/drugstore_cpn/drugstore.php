@@ -16,8 +16,8 @@
     <div id="headerNavbar">
         <div id="menuLeft">
             <a class="navbar-brand" href="../../dashboard/home_cpn/index.html">
-                <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/logo.svg"
-                    alt="nhathuoc24h.com" width="140px" height="60px" /></a>
+                <img src="https://cdn.jiohealth.com/pharmacy/product/asset/images/navJioLogo@3x.png" alt="nhathuoc24h.com"
+                width="60px" height="40px" />
         </div>
         <div>
             <div id="box-search">
@@ -26,7 +26,13 @@
             </div>
             <ul id="sub-menu">
                 <li><a href="#">Tất cả</a></li>
-                <li><a href="#">Thuốc bán theo chỉ định</a></li>
+                <li><a href="<?php
+                    require '../../connect.php';
+                    $query=mysqli_query($conn,"select * from `product` where name like `thuoc ho`");
+                        while($row=mysqli_fetch_array($query)) {
+                            echo $row["id"];
+                        }
+                ?>">Thuốc bán theo chỉ định</a></li>
                 <li><a href="#">Thuốc đặc trị</a></li>
                 <li><a href="#">Thực phẩm chức năng</a></li>
                 <li><a href="#">Dược mỹ phẩm</a></li>
@@ -50,7 +56,32 @@
     </div>
     <div class="container">
         <hr style="margin: 20px;">
-        <div class="row" id="products_list"></div>
+        <div class="row" id="products_list">
+        <?php
+            require '../../connect.php';
+            $query=mysqli_query($conn,"select * from `product`");
+            while($row=mysqli_fetch_array($query)){
+            ?>
+            <div class="col">
+                    <div class="card">
+                        <img src="<?php echo $row['image']; ?>" class="img-card"
+                        alt="<?php echo $row['name']; ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                            <p class="card-description"><?php echo $row['description']; ?></p>
+                            <p class="card-price"><?php echo $row['price']; ?></p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-add" href="../product_detail_cpn/product-detail.php?id=<?php echo $row['id']; ?>">Thêm vào giỏ</a>
+                            <a class="btn btn-detail" href="../product_detail_cpn/product-detail.php?id=<?php echo $row['id']; ?>">Chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+           
+        </div>
         <hr style="margin: 20px;">
     </div>
 
@@ -112,7 +143,7 @@
             </div>
         </div>
     </footer>
-    <script src="./drugstore.js"></script>
+    <!-- <script src="./drugstore.js"></script> -->
 </body>
 
 </html>
