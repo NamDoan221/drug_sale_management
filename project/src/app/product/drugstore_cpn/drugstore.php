@@ -1,18 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-NTGZLDR");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Nhà thuốc 24h</title>
-    <link rel="stylesheet" href="./drugstore.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="./drugstore.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NTGZLDR"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden;"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="headerNavbar">
         <div id="menuLeft">
             <a class="navbar-brand" href="../../dashboard/home_cpn/index.html">
@@ -53,6 +86,43 @@
                 <li id="user_img"></li>
             </ul>
         </div>
+        <ul id="sub-menu">
+          <li><a href="#">Tất cả</a></li>
+          <li><a href="#">Thuốc bán theo chỉ định</a></li>
+          <li><a href="#">Thuốc đặc trị</a></li>
+          <li><a href="#">Thực phẩm chức năng</a></li>
+          <li><a href="#">Dược mỹ phẩm</a></li>
+          <li><a href="#">Dụng cụ y tế</a></li>
+        </ul>
+      </div>
+      <div id="menuRight">
+        <ul id="menu">
+          <li>
+            <a class="nav-link" href="../../dashboard/home_cpn/index.html"
+              >Trang chủ</a
+            >
+          </li>
+          <li>
+            <i class="fa fa-thumbs-up"></i>
+          </li>
+          <li>
+            <i class="fa fa-thumbs-down"></i>
+          </li>
+          <li>
+            <a href="../chart/chart.html">view</a>
+          </li>
+          <li>
+            <a class="nav-link" onclick="renderCart()">
+              <i
+                class="fa fa-cart-plus"
+                style="margin-right: 5px; color: #111c63;"
+              ></i>
+              <i class="fas fa-circle" id="cart_mess"></i>
+            </a>
+          </li>
+          <li id="user_img"></li>
+        </ul>
+      </div>
     </div>
     <div class="container">
         <hr style="margin: 20px;">
@@ -86,64 +156,88 @@
     </div>
 
     <div class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close-btn" onclick="closeModal()">&times;</span>
-                <h2>Giỏ hàng của bạn</h2>
-            </div>
-            <div class="modal-body" id="cart_item"></div>
-            <div class="modal-footer">
-                <span class="total">Tổng cộng: <span id="total_bill"></span></span>
-                <button type="button" class="btn-footer" onclick="closeModal()">Tiếp tục mua hàng</button>
-                <button type="button" class="btn-footer btn-primary" onclick="onPay()">Thanh toán</button>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" onclick="closeModal()">&times;</span>
+          <h2>Giỏ hàng của bạn</h2>
         </div>
+        <div class="modal-body" id="cart_item"></div>
+        <div class="modal-footer">
+          <span class="total">Tổng cộng: <span id="total_bill"></span></span>
+          <button type="button" class="btn-footer" onclick="closeModal()">
+            Tiếp tục mua hàng
+          </button>
+          <button
+            type="button"
+            class="btn-footer btn-primary"
+            onclick="onPay()"
+          >
+            Thanh toán
+          </button>
+        </div>
+      </div>
     </div>
     <footer>
-        <div class="row" style="padding: 40px;justify-content: space-around;">
-            <div class="box-footer col-4 col-s-6 col-xs-12" >
-                <div>
-                    <img src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/logo.svg"
-                        alt="nhathuoc24h.com" width="140px" height="70px" />
-                </div>
-                <p>Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad eos obcaecati tenetur
-                    veritatis eveniet distinctio possimus.</p>
-                <ul id="contact-social">
-                    <li>
-                        <a href="#"><i class="fab fa-facebook-square"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fab fa-twitter-square"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="box-footer col-4 col-s-6 col-xs-12"> 
-                <ul id="sub-menu-footer">
-                    <li><a href="#">Tất cả</a></li>
-                    <li><a href="#">Thuốc bán theo chỉ định</a></li>
-                    <li><a href="#">Thuốc đặc trị</a></li>
-                    <li><a href="#">Thực phẩm chức năng</a></li>
-                    <li><a href="#">Dược mỹ phẩm</a></li>
-                    <li><a href="#">Dụng cụ y tế</a></li>
-                </ul>
-            </div>
-            <div class="box-footer col-4 col-s-6 col-xs-12">
-                <h3><b>Get In Touch</b></h3>
-                <ul style="padding: 0px;">
-                    <li>
-                        <p><i class="fas fa-envelope-square pr-2"></i>Support Available for 24/7</p>
-                    </li>
-                    <li><a href="#">Privacy Policy</a><b>Support@email.com</b></li>
-                    <li>Mon to Fri : 08:30 - 18:00</li>
-                    <li><a href="#"><b><i class="fas fa-phone pr-1"></i>+23-456-6588</b></a></li>
-                </ul>
-            </div>
+      <div class="row" style="padding: 40px; justify-content: space-around;">
+        <div class="box-footer col-4 col-s-6 col-xs-12">
+          <div>
+            <img
+              src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/logo.svg"
+              alt="nhathuoc24h.com"
+              width="140px"
+              height="70px"
+            />
+          </div>
+          <p>
+            Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad
+            eos obcaecati tenetur veritatis eveniet distinctio possimus.
+          </p>
+          <ul id="contact-social">
+            <li>
+              <a href="#"><i class="fab fa-facebook-square"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-twitter-square"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </li>
+          </ul>
         </div>
+        <div class="box-footer col-4 col-s-6 col-xs-12">
+          <ul id="sub-menu-footer">
+            <li><a href="#">Tất cả</a></li>
+            <li><a href="#">Thuốc bán theo chỉ định</a></li>
+            <li><a href="#">Thuốc đặc trị</a></li>
+            <li><a href="#">Thực phẩm chức năng</a></li>
+            <li><a href="#">Dược mỹ phẩm</a></li>
+            <li><a href="#">Dụng cụ y tế</a></li>
+          </ul>
+        </div>
+        <div class="box-footer col-4 col-s-6 col-xs-12">
+          <h3><b>Get In Touch</b></h3>
+          <ul style="padding: 0px;">
+            <li>
+              <p>
+                <i class="fas fa-envelope-square pr-2"></i>Support Available for
+                24/7
+              </p>
+            </li>
+            <li><a href="#">Privacy Policy</a><b>Support@email.com</b></li>
+            <li>Mon to Fri : 08:30 - 18:00</li>
+            <li>
+              <a href="#"
+                ><b><i class="fas fa-phone pr-1"></i>+23-456-6588</b></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
     </footer>
     <!-- <script src="./drugstore.js"></script> -->
 </body>
 
+    <script src="./load-user-fb.js"></script>
+    <script src="./drugstore.js"></script>
+  </body>
 </html>
