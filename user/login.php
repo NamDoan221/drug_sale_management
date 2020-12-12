@@ -52,7 +52,7 @@
                                 exit;
                             }
                             $password = md5($password);
-                            $sql = "SELECT username, password FROM user WHERE username = '$username'";
+                            $sql = "SELECT * FROM user WHERE username = '$username'";
                             $kt = mysqli_query($conn, $sql);
                             if (mysqli_num_rows($kt) == 0) {
                                 echo '<span class="text-danger d-block mt-3">Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại.</span>';
@@ -63,7 +63,10 @@
                                 echo '<span class="text-danger d-block mt-3">Mật khẩu không đúng. Vui lòng nhập lại.</span>';
                                 exit;
                             }
-                            $_SESSION['session_id'] = $username.$password;
+                            $_SESSION['session_id'] = $username;
+                            if ($row['permission'] == 'admin') {
+                                echo '<script language="javascript">window.location="../admin/product-management/product-management.php";</script>';
+                            }
                             echo '<script language="javascript">window.location="../product/drugstore_cpn/drugstore.php";</script>';
                         }
                     ?>
