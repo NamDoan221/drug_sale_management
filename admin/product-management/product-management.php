@@ -3,6 +3,9 @@
   if(!$_SESSION['session_id']) {
     echo '<script language="javascript">window.location="../../user/login.php";</script>';
   }
+  if($_SESSION['user_detail']->permission != 'admin') {
+    echo '<script language="javascript">window.location="../../dashboard/home_cpn/index.php";alert("Ban khong co quyen truy cap chuc nang nay!");</script>';
+  }
 
   if (isset($_POST['search'])){
     $key = $_POST['key'];
@@ -22,9 +25,9 @@
     $filter_result = filterTable($query);
   }
   function filterTable($query) {
-      require '../../connect.php';
-      $result = mysqli_query($conn, $query);
-      return $result;
+    require '../../connect.php';
+    $result = mysqli_query($conn, $query);
+    return $result;
   }
 ?>
 
@@ -103,7 +106,7 @@
               <td><?php echo $row['quanity']; ?></td>
               <td>
                 <a href="../product-management/edit.php?id=<?php echo $row['id_product']; ?>" class="btn btn-primary">Sửa</a>
-                <a href="./delete.php?id=<?php echo $row['id_product']; ?>" class="btn btn-danger">Xóa</a>
+                <a href="./delete.php?id=<?php echo $row['id_product']; ?>" class="btn btn-danger" onClick="return confirm('Ban co muon xoa san pham nay ko?')">Xóa</a>
               </td>
             </tr>
          <?php endwhile; ?> 

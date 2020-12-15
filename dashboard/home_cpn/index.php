@@ -48,7 +48,7 @@
                 </ul>
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a id="login" class="nav-item nav-link active" href="../../user/login_cpn/login.php">
+                        <a id="login" class="nav-item nav-link active" href="../../user/login.php">
                             <i class="fa fa-power-off pr-1"></i>Login</a>
                     </li>
                     <li class="nav-item">

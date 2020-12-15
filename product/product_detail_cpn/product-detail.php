@@ -68,13 +68,26 @@
           <p class="text-danger"><?php echo $row['price']; ?> vnd</p>
         </div>
         <div role="group" aria-label="First group">
-          <a href="../product_detail_cpn/product-detail.php?id=<?php echo $row['id_product']; ?>" class="btn btn-primary">+</a>
+          <button class="btn btn-primary" onclick="amountAdd()">+</button>
+            <?php
+              $amount = 1;
+              // echo $amount;
+              function amountAdd(isset($_POST['buttonA'])){
+                $amount++;
+                echo $amount;
+              }
+              function amountRemove(){
+                // $amount--;
+                echo $amount;
+              }
+            ?>
           <button type="button" class="btn btn-light" >1</button>
-          <a href="../product_detail_cpn/product-detail.php?id=<?php echo $row['id_product']; ?>" class="btn btn-danger">-</a>
+
+          <button class="btn btn-danger" onclick="document.write('<?php amountRemove() ?>');">-</button>
         </div>
         <div class="mt-3">
-          <a href="../product_detail_cpn/product-detail.php?id=<?php echo $row['id_product']; ?>" class="btn btn-primary mr-2">Thêm vào rỏ</a>
-          <a href="../product_detail_cpn/product-detail.php?id=<?php echo $row['id_product']; ?>" class="btn btn-danger">Quay lại</a>
+          <a href="../drugstore_cpn/add-to-cart.php?id=<?php echo $row['id_product']; ?>&amount=2" class="btn btn-primary mr-2">Thêm vào giỏ</a>
+          <a href="../drugstore_cpn/drugstore.php" class="btn btn-danger">Quay lại</a>
         </div>
       </div>
     </div>
