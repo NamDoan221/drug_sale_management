@@ -85,7 +85,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <div class="d-flex flex-wrap align-content-start pb-5" style="background:#fff;">
+        <div class="d-flex flex-wrap align-content-start pb-5" style="background:#fff;" >
             <div class="col-lg-6 col-md-12 p-2">
                 <div class="box-intro">
                     <h3 class='title'>Nhà Thuốc Trực Tuyến Jio</h3>
@@ -121,7 +121,7 @@
                 </div>
             </div>
         </div>
-        <div id="service" class="mb-5 p-5">
+        <div id="services" class="mb-5 p-5">
             <h1 class="title-box">
                 Dịch vụ
             </h1>
@@ -188,7 +188,7 @@
                 </a>
             </div>
         </div>
-        <div class="mb-5 p-5">
+        <div class="mb-5 p-5" id="portfolio">
             <h1 class="title-box">
                 Cửa hàng
             </h1>
@@ -229,7 +229,7 @@
             </div>
             <br />
         </div>
-        <div class="mb-5 p-5" style="background:#f5f6fa">
+        <div class="mb-5 p-5" style="background:#f5f6fa" id="contact">
             <h1 class="title-box">
                 Liên hệ
             </h1>
