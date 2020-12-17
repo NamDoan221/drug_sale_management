@@ -175,7 +175,7 @@
               <div class="d-flex justify-content-around mt-3">
                 <a
                   href="./add-to-cart.php?id=<?php echo $row['id_product']; ?>&amount=1"
-                  class="btn btn-info"
+                  class="btn btn-outline-danger"
                   >Thêm vào giỏ</a
                 >
                 <a
