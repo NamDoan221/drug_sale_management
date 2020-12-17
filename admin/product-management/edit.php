@@ -69,8 +69,17 @@
                         <textarea class="form-control" id="description" aria-label="With textarea" name="description" 
                         ><?php echo $row['description']; ?></textarea>
                     </div>
-                    <button type="submit" name="edit" class="btn btn-primary mt-3 float-right">Sửa</button>
+                    <button type="submit" name="edit" class="btn btn-primary mt-3 float-right">Lưu</button>
                     <?php
+                        function uuid() {
+                          return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+                            mt_rand(0, 0xffff), mt_rand(0, 0xffff),
+                            mt_rand(0, 0xffff),
+                            mt_rand(0, 0x0fff) | 0x4000,
+                            mt_rand(0, 0x3fff) | 0x8000,
+                            mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
+                          );
+                        }
                         if (isset($_POST['edit'])){
                             $image=$_POST['image'];
                             $name=$_POST['name'];
@@ -81,13 +90,18 @@
                                 echo '<span class="text-danger d-block mt-3">Vui lòng nhập đầy đủ thông tin.</span>';
                                 exit;
                             }
-                            $sql = "UPDATE `product` SET `name`='$name',`price`='$price',`image`='$image',`quanity`='$quanity',`description`='$description' WHERE id_product = '$id'";
+                            if ($id) {
+                              $sql = "UPDATE `product` SET `name`='$name',`price`='$price',`image`='$image',`quanity`='$quanity',`description`='$description' WHERE id_product = '$id'";
+                            } else {
+                              $id_create = uuid();
+                              $sql = "INSERT INTO `product`(`id_product`, `name`, `price`, `image`, `quanity`, `description`) VALUES ('$id_create','$name','$price','$image','$quanity','$description')";
+                            }
                             $kt = mysqli_query($conn, $sql);
                             if ($kt != TRUE) {
                                 echo '<span class="text-danger d-block mt-3">Lỗi. Vui lòng kiểm tra lại.</span>';
                                 exit;
                             }
-                            echo '<script language="javascript">window.location="../product-management/product-management.php";</script>';
+                            echo '<script language="javascript">alert("Thao tac thanh cong!");window.location="../product-management/product-management.php";</script>';
                         }
                     ?>
                     <?php

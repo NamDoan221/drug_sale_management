@@ -52,22 +52,27 @@
                                 exit;
                             }
                             $password = md5($password);
-                            $sql = "SELECT * FROM user WHERE username = '$username'";
-                            $kt = mysqli_query($conn, $sql);
-                            if (mysqli_num_rows($kt) == 0) {
+                            $queryLogin = "SELECT * FROM `user` WHERE username = '$username'";
+                            $resultLogin = mysqli_query($conn, $queryLogin);
+                            if (mysqli_num_rows($resultLogin) == 0) {
                                 echo '<span class="text-danger d-block mt-3">Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại.</span>';
                                 exit;
                             }
-                            $row = mysqli_fetch_array($kt);
-                            if ($password != $row['password']) {
+                            $rowLogin = mysqli_fetch_array($resultLogin);
+                            if ($password != $rowLogin['password']) {
                                 echo '<span class="text-danger d-block mt-3">Mật khẩu không đúng. Vui lòng nhập lại.</span>';
                                 exit;
                             }
-                            $_SESSION['session_id'] = $username;
-                            if ($row['permission'] == 'admin') {
-                                echo '<script language="javascript">window.location="../admin/product-management/product-management.php";</script>';
+                            $_SESSION['session_id'] = $rowLogin['id_user'];
+                            $queryGetDetail = "SELECT * FROM `user_detail` WHERE id_user = '".$rowLogin['id_user']."'";
+                            $resultDetail = mysqli_query($conn, $queryGetDetail);
+                            $rowDetail = mysqli_fetch_array($resultDetail);
+                            $userDetail = json_decode(json_encode($rowDetail), FALSE);
+                            $_SESSION['user_detail'] = $userDetail;
+                            if ($rowDetail['permission'] == 'admin') {
+                                echo '<script language="javascript">alert("Dang nhap thanh cong!");window.location="../admin/product-management/product-management.php";</script>';
                             }
-                            echo '<script language="javascript">window.location="../product/drugstore_cpn/drugstore.php";</script>';
+                            echo '<script language="javascript">alert("Dang nhap thanh cong!");window.location="../product/drugstore_cpn/drugstore.php";</script>';
                         }
                     ?>
                     <?php

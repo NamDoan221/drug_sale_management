@@ -174,8 +174,8 @@
               </div>
               <div class="d-flex justify-content-around mt-3">
                 <a
-                  href="../product_detail_cpn/product-detail.php?id=<?php echo $row['id_product']; ?>"
-                  class="btn btn-primary"
+                  href="./add-to-cart.php?id=<?php echo $row['id_product']; ?>&amount=1"
+                  class="btn btn-info"
                   >Thêm vào giỏ</a
                 >
                 <a
