@@ -1,5 +1,8 @@
 <?php
+  session_start();
   include '../../connect.php';
+  $amount = 1;
+  $_SESSION['amount'] = $amount;
   $id = $_GET['id'];
   $query = mysqli_query($conn, "SELECT * FROM `product` WHERE id_product = '$id'");
   $row = mysqli_fetch_assoc($query);
@@ -69,24 +72,29 @@
         </div>
         <div role="group" aria-label="First group">
           <button class="btn btn-primary" onclick="amountAdd()">+</button>
-            <?php
-              $amount = 1;
-              // echo $amount;
-              function amountAdd(isset($_POST['buttonA'])){
-                $amount++;
-                echo $amount;
-              }
-              function amountRemove(){
-                // $amount--;
-                echo $amount;
-              }
-            ?>
-          <button type="button" class="btn btn-light" >1</button>
+          <button class="btn btn-light" id="amount">1</button>
+          <button class="btn btn-danger" onclick="amountSub()">-</button>
+          <script type="text/javascript">
+            var amount = document.getElementById('amount');
+            var number = 1;
+            function amountAdd() {
+              number++;
+              amount.innerHTML = number;
+              console.log('<?php $amount = $_SESSION['amount']; $amount += 1; echo $amount; $_SESSION['amount'] = $amount; echo $_SESSION['amount']; ?>');
+            }
 
-          <button class="btn btn-danger" onclick="document.write('<?php amountRemove() ?>');">-</button>
+            function amountSub() {
+              console.log('<?php $amount--;echo $amount; $_SESSION['amount'] = $amount; echo $_SESSION['amount']; ?>');
+              if (number < 2) {
+                return;
+              }
+              number--;
+              amount.innerHTML = number;
+            }
+          </script>
         </div>
         <div class="mt-3">
-          <a href="../drugstore_cpn/add-to-cart.php?id=<?php echo $row['id_product']; ?>&amount=2" class="btn btn-primary mr-2">Thêm vào giỏ</a>
+          <a href="../drugstore_cpn/add-to-cart.php?id=<?php echo $row['id_product']; ?>&amount=<?php echo $_SESSION['amount']; ?>" class="btn btn-primary mr-2">Thêm vào giỏ</a>
           <a href="../drugstore_cpn/drugstore.php" class="btn btn-danger">Quay lại</a>
         </div>
       </div>

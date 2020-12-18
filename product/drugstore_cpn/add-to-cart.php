@@ -1,5 +1,8 @@
 <?php 
     session_start();
+    if (!$_SESSION['user_detail']->id_user) {
+        echo '<script language="javascript">window.location="../../user/login.php";</script>';
+    }
     include '../../connect.php';
     $id = $_GET['id'];
     $amount = $_GET['amount'];
