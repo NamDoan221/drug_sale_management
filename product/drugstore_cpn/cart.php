@@ -1,15 +1,19 @@
 <?php
     session_start();
-    $id_user = $_SESSION['user_detail']->id_user;
-    if (isset($_POST['search'])){
-        $key = $_POST['key'];
-        $query = "select * from product join cart_product
-        on product.id_product = cart_product.id_product WHERE id_user = '$id_user' AND name LIKE '%".$key."%'";
-        $filter_result = filterTable($query);
+    if (!$_SESSION['user_detail']->id_user) {
+      echo '<script language="javascript">window.location="../../user/login.php";</script>';
     } else {
-        $query = "select * from product join cart_product
-        on product.id_product = cart_product.id_product WHERE id_user = '$id_user'";
-        $filter_result = filterTable($query);
+      $id_user = $_SESSION['user_detail']->id_user;
+      if (isset($_POST['search'])){
+          $key = $_POST['key'];
+          $query = "select * from product join cart_product
+          on product.id_product = cart_product.id_product WHERE id_user = '$id_user' AND name LIKE '%".$key."%'";
+          $filter_result = filterTable($query);
+      } else {
+          $query = "select * from product join cart_product
+          on product.id_product = cart_product.id_product WHERE id_user = '$id_user'";
+          $filter_result = filterTable($query);
+      }
     }
     function filterTable($query) {
         require '../../connect.php';
@@ -87,7 +91,7 @@
             </button>
           </form>
           <li class="nav-item active mx-4">
-            <a class="nav-item nav-link active text-danger" href="./drugstore.php">Nhà thuốc
+            <a class="nav-item nav-link active text-primary" href="./drugstore.php">Nhà thuốc
             </a>
           </li>
         </ul>
@@ -145,7 +149,6 @@
                     ?>
                   </button>
                   <button class="btn btn-danger" type="submit" name="sub">-</button>
-                
               </td>
               <td>
               <?php 
