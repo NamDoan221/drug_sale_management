@@ -16,7 +16,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light"
             style="box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);">
-            <a class="navbar-brand" href="/home_cpn/index.js">
+            <a class="navbar-brand" href="./index.php">
                 <img src="https://cdn.jiohealth.com/pharmacy/product/asset/images/navJioLogo@3x.png"
                     alt="nhathuoc24h.com" width="60px" height="auto" />
             </a>
@@ -47,15 +47,22 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a id="login" class="nav-item nav-link active" href="../../user/login.php">
-                            <i class="fa fa-power-off pr-1"></i>Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="logout" onclick="onLogout()" class="nav-item nav-link active"
-                            href="../../user/login_cpn/login.html">
-                            <i class="fa fa-power-off pr-1"></i>Logout</a>
-                    </li>
+                <?php
+                    session_start();
+                    if(!isset($_SESSION['session_id'])) {
+                      echo '<li class="nav-item active">
+                                <a id="login" class="nav-item nav-link active" href="../../user/login.php">
+                                    <i class="fa fa-power-off pr-1"></i>Login
+                                </a>
+                            </li>';
+                    } else {
+                        echo '<li class="nav-item">
+                                <a id="logout" class="nav-item nav-link active" href="./logout.php">
+                                    <i class="fa fa-power-off pr-1"></i>Logout
+                                </a>
+                            </li>';
+                    }
+                ?>
                 </ul>
             </div>
         </nav>

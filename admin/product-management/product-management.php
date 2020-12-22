@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if(!$_SESSION['session_id']) {
+  if(!isset($_SESSION['session_id'])) {
     echo '<script language="javascript">window.location="../../user/login.php";</script>';
   }
   if($_SESSION['user_detail']->permission != 'admin') {

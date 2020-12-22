@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  require '../connect.php';
+  if(isset($_SESSION['session_id'])) {
+    echo '<script language="javascript">window.location="../dashboard/home_cpn/index.php";</script>';
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,10 +17,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-        <?php
-            require '../connect.php';
-            session_start();
-        ?>
         <div class="container pt-4 mt-4 w-50">
             <div class="jumbotron w-100">
                 <div>
@@ -45,8 +48,8 @@
                             echo '<script language="javascript">window.location="./register.php";</script>';
                         }
                         if (isset($_POST['login'])){
-                            $username=$_POST['username'];
-                            $password=$_POST['password'];
+                            $username = $_POST['username'];
+                            $password = $_POST['password'];
                             if (!$username || !$password) {
                                 echo '<span class="text-danger d-block mt-3">Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.</span>';
                                 exit;
