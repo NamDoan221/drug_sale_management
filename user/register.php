@@ -25,48 +25,84 @@
                 </div>
                 <form method="POST" style="display: flow-root;">
                     <div class="form-group">
-                        <label for="username">Username</label>
+                        <label for="username">Tài khoản</label>
                         <input class="form-control" id="username" type="text" name="username" value="" />
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password">Mật khẩu</label>
                         <input class="form-control" id="password" type="password" name="password" value="" />
                     </div>
                     <div class="form-group">
-                        <label for="cf-password">Password Confirm</label>
+                        <label for="cf-password">Nhập lại mật khẩu</label>
                         <input class="form-control" id="cf-password" type="password" name="cf-password" value="" />
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label" for="customCheck1">I accept condition of the page</label>
+                    <div class="form-group">
+                        <label for="fullname">Họ và tên</label>
+                        <input class="form-control" id="fullname" type="text" name="fullname" value="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="dateofbirth">Ngày sinh</label>
+                        <input class="form-control" id="dateofbirth" type="date" name="dateofbirth" value="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Địa chỉ</label>
+                        <input class="form-control" id="address" type="text" name="address" value="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại</label>
+                        <input class="form-control" id="phone" type="text" name="phone" value="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control" id="email" type="text" name="email" value="" />
                     </div>
                     <button type="submit" name="register" class="btn btn btn-primary mt-3 float-right">Tạo tài khoản</button>
                     <button type="submit" name="login" class="btn btn-light mt-3 mr-2 float-right">Đăng nhập</button>
                     <?php
+                        function uuid() {
+                            return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+                            mt_rand(0, 0xffff), mt_rand(0, 0xffff),
+                            mt_rand(0, 0xffff),
+                            mt_rand(0, 0x0fff) | 0x4000,
+                            mt_rand(0, 0x3fff) | 0x8000,
+                            mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
+                            );
+                        }
                         if (isset($_POST['login'])){
                             echo '<script language="javascript">window.location="./login.php";</script>';
                         }
                         if (isset($_POST['register'])){
-                            $username=$_POST['username'];
-                            $password=$_POST['password'];
-                            if (!$username || !$password) {
-                                echo '<span class="text-danger d-block mt-3">Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.</span>';
+                            $username = $_POST['username'];
+                            $password = $_POST['password'];
+                            $cf_password = $_POST['cf-password'];
+                            $fullname = $_POST['fullname'];
+                            $dateofbirth = $_POST['dateofbirth'];
+                            $address = $_POST['address'];
+                            $phone = $_POST['phone'];
+                            $email = $_POST['email'];
+                            if (!$username || !$password || !$cf_password) {
+                                echo '<span class="text-danger d-block mt-3">Vui lòng nhập đầy đủ thông tin.</span>';
+                                exit;
+                            }
+                            if (!$password != !$cf_password) {
+                                echo '<span class="text-danger d-block mt-3">Mật khẩu không trùng khớp.</span>';
+                                exit;
+                            }
+                            if(!preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $phone)) {
+                                echo '<span class="text-danger d-block mt-3">Số điện thoại không đúng định dạng.</span>';
+                                exit;
+                            }
+                            if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                                echo '<span class="text-danger d-block mt-3">Email không đúng định dạng.</span>';
                                 exit;
                             }
                             $password = md5($password);
-                            $sql = "SELECT username, password FROM user WHERE username = '$username'";
-                            $kt = mysqli_query($conn, $sql);
-                            if (mysqli_num_rows($kt) == 0) {
-                                echo '<span class="text-danger d-block mt-3">Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại.</span>';
-                                exit;
-                            }
-                            $row = mysqli_fetch_array($kt);
-                            if ($password != $row['password']) {
-                                echo '<span class="text-danger d-block mt-3">Mật khẩu không đúng. Vui lòng nhập lại.</span>';
-                                exit;
-                            }
-                            $_SESSION['session_id'] = $username.$password;
-                            echo '<script language="javascript">window.location="../product/drugstore_cpn/drugstore.php";</script>';
+                            $id_user = uuid();
+                            $sqlUser = "INSERT INTO `user`(`id_user`, `username`, `password`) VALUES ('$id_user','$username','$password')";
+                            $sqlUserDetail = "INSERT INTO `user_detail`(`id_user`, `fullname`, `date_of_birdth`, `address`, `phone_number`, `email`, `permission`) VALUES ('$id_user','$fullname','$dateofbirth','$address','$phone','$email','customer')";
+                            $ktUser = mysqli_query($conn, $sqlUser);
+                            $ktUserDetail = mysqli_query($conn, $sqlUserDetail);
+                            echo '<script language="javascript">alert("Thao tác thanh cong!");window.location="./login.php";</script>';
                         }
                     ?>
                 </form>
