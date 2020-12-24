@@ -144,7 +144,7 @@
                         <p>7 Topics</p>
                     </div>
                 </a>
-                <a href="../service_cpn/noitiet/noitiet.html" class="boxService ml-3 mb-2">
+                <a href="../service_cpn/noitiet/noitiet.php" class="boxService ml-3 mb-2">
                     <i class="fa fa-fire"></i>
                     <div>
                         <p>Nội tiết</p>

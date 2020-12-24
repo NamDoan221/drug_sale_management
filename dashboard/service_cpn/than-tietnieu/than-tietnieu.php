@@ -60,18 +60,12 @@
               </div>
               <div class="care-service-price">
                 <div class="col-left">
-                  <span class="price-original">
-                    Giá Gốc 600.000 ₫
-                  </span>
+                  <span class="price-original"> Giá Gốc 600.000 ₫ </span>
                   <br />
-                  <span class="price">
-                    500.000 ₫
-                  </span>
+                  <span class="price"> 500.000 ₫ </span>
                 </div>
                 <div class="col-right">
-                  <button class="btn btn-teal">
-                    Đặt Hẹn Khám Ngay
-                  </button>
+                  <button class="btn btn-teal">Đặt Hẹn Khám Ngay</button>
                 </div>
               </div>
             </div>
@@ -275,7 +269,7 @@
         </div>
       </div>
 
-      <div class="explain-block" style="padding: 20px 100px;">
+      <div class="explain-block" style="padding: 20px 100px">
         <div class="explain-title">
           <span>Thông tin về bệnh Thận mãn tính</span>
         </div>
@@ -334,14 +328,12 @@
           <button type="button" class="btn btn-add">
             Liên hệ với chúng tôi
           </button>
-          <button type="button" class="btn btn-detail">
-            Đặt hẹn ngay
-          </button>
+          <button type="button" class="btn btn-detail">Đặt hẹn ngay</button>
         </div>
       </div>
     </div>
     <footer>
-      <div style="padding: 40px; display: flex; align-items: center;">
+      <div style="padding: 40px; display: flex; align-items: center">
         <div class="box-footer col-4 col-s-6 col-xs-12">
           <div>
             <img
@@ -379,7 +371,7 @@
         </div>
         <div class="box-footer col-4 col-s-6 col-xs-12">
           <h3><b>Get In Touch</b></h3>
-          <ul style="padding: 0px;">
+          <ul style="padding: 0px">
             <li>
               <p>
                 <i class="fas fa-envelope-square pr-2"></i>Support Available for
