@@ -37,7 +37,7 @@
         class="navbar navbar-expand-lg fixed-top navbar-light bg-light"
         style="box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1)"
       >
-        <a class="navbar-brand" href="/home_cpn/index.js">
+        <a class="navbar-brand" href="../../home_cpn/index.php">
           <img
             src="https://cdn.jiohealth.com/pharmacy/product/asset/images/navJioLogo@3x.png"
             alt="nhathuoc24h.com"

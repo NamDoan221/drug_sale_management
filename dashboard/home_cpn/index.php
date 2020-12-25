@@ -36,7 +36,7 @@
                         <a class="nav-item nav-link active" href="#portfolio">Cửa hàng</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link active" href="../member_cpn/member.php">Thành viên</a>
+                        <a class="nav-item nav-link active" href="../member_cpn/member.html">Thành viên</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-item nav-link active" href="#contact">Liên lạc</a>

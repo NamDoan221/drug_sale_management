@@ -138,7 +138,7 @@
       </div>
     </nav>
     <div
-      class="mx-5 d-flex justify-content-center"
+      class="d-flex justify-content-center"
       style="
         margin-top: 70px;
         margin-bottom: 20px;
