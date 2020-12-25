@@ -158,7 +158,8 @@
               class="card-img-top"
               src="<?php echo $row['image']; ?>"
               alt="Card image cap"
-              height="140"
+              height="190"
+              style="object-fit: cover"
             />
             <div class="card-body d-flex flex-column justify-content-around">
               <div>

@@ -137,60 +137,60 @@
                 cậy, cũng như những thông tin mới nhất về cộng đồng Jio Health.
             </p>
             <div id="contentServiceBox" class="d-flex flex-wrap">
-                <a href="../service_cpn/service_heart/service_heart.html" class="boxService mb-2">
+                <a href="../service_cpn/service_heart/service_heart.php" class="boxService mb-2">
                     <i class="fas fa-heartbeat"></i>
                     <div>
-                        <p>Tim mạch</p>
-                        <p>7 Topics</p>
+                        <p style="font-size:18px;">Tim mạch</p>
+                        <p style="font-size:14px;color: #4a4a4a;">7 Topics</p>
                     </div>
                 </a>
-                <a href="../service_cpn/service_children/service_children.html" class="boxService ml-3 mb-2 ">
+                <a href="../service_cpn/service_children/service_children.php" class="boxService ml-3 mb-2 ">
                     <i class="fas fa-child"></i>
                     <div>
-                        <p>Nhi khoa</p>
-                        <p>7 Topics</p>
+                        <p style="font-size:18px">Nhi khoa</p>
+                        <p style="font-size:14px;color: #4a4a4a;">7 Topics</p>
                     </div>
                 </a>
                 <a href="../service_cpn/noitiet/noitiet.php" class="boxService ml-3 mb-2">
                     <i class="fa fa-fire"></i>
                     <div>
-                        <p>Nội tiết</p>
-                        <p>7 Topics</p>
+                        <p style="font-size:18px">Nội tiết</p>
+                        <p style="font-size:14px;color: #4a4a4a;">7 Topics</p>
                     </div>
                 </a>
-                <a href="../service_cpn/than-tietnieu/than-tietnieu.html" class="boxService ml-3 mb-2 ">
+                <a href="../service_cpn/than-tietnieu/than-tietnieu.php" class="boxService ml-3 mb-2 ">
                     <i class="fas fa-medkit"></i>
                     <div>
-                        <p>Thận/Tiết niệu</p>
-                        <p>7 Topics</p>
+                        <p style="font-size:18px">Thận/Tiết niệu</p>
+                        <p style="font-size:14px;color: #4a4a4a;">7 Topics</p>
                     </div>
                 </a>
-                <a href="../service_cpn/thaisan/thaisan.html" class="boxService ml-3 mb-2 ">
+                <a href="../service_cpn/thaisan/thaisan.php" class="boxService ml-3 mb-2 ">
                     <i class="fas fa-baby"></i>
                     <div>
-                        <p>Thai sản</p>
-                        <p>7 Topics</p>
+                        <p style="font-size:18px">Thai sản</p>
+                        <p style="font-size:14px;color: #4a4a4a;">7 Topics</p>
                     </div>
                 </a>
                 <a href="" class="boxService ml-3 mb-2 ">
                     <i class="fas fa-allergies"></i>
                     <div>
-                        <p>Da liễu</p>
-                        <p>7 Topics</p>
+                        <p style="font-size:18px">Da liễu</p>
+                        <p style="font-size:14px;color: #4a4a4a;">7 Topics</p>
                     </div>
                 </a>
                 <a href="" class="boxService ml-3 mb-2 ">
                     <i class="fas fa-transgender-alt"></i>
                     <div>
-                        <p>Sức khoẻ giới tính</p>
-                        <p>7 Topics</p>
+                        <p style="font-size:17px">Sk giới tính</p>
+                        <p style="font-size:14px;color: #4a4a4a;">7 Topics</p>
                     </div>
                 </a>
                 <a href="" class="boxService ml-3 mb-2 ">
                     <i class="fas fa-tooth"></i>
                     <div>
-                        <p>Răng hàm mặt</p>
-                        <p>7 Topics</p>
+                        <p style="font-size:18px">Răng hàm mặt</p>
+                        <p style="font-size:14px;color: #4a4a4a;">7 Topics</p>
                     </div>
                 </a>
             </div>

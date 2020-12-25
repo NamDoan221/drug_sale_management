@@ -1,9 +1,18 @@
+<?php
+    $query = "SELECT * FROM `doctor` WHERE type='san'";
+    $filter_result = filterTable($query);
+    function filterTable($query) {
+        require '../../../connect.php';
+        $result = mysqli_query($conn, $query);
+        return $result;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thận, tiết niệu</title>
+    <title>Thai sản</title>
     <link rel="stylesheet" href="./thaisan.css" />
     <link
       rel="stylesheet"
@@ -11,421 +20,300 @@
       integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
   </head>
-
   <body>
-    <div id="headerNavbar">
-      <div id="menuLeft">
-        <a class="navbar-brand" href="../../home_cpn/index.html">
+    <div class="container" style="padding-top: 63px">
+      <nav
+        class="navbar navbar-expand-lg fixed-top navbar-light bg-light"
+        style="box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1)"
+      >
+        <a class="navbar-brand" href="/home_cpn/index.js">
           <img
-            src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/logo.svg"
+            src="https://cdn.jiohealth.com/pharmacy/product/asset/images/navJioLogo@3x.png"
             alt="nhathuoc24h.com"
-            width="140px"
-            height="60px"
-        /></a>
+            width="60px"
+            height="auto"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarToggler"
+          aria-controls="navbar-toggler-icon"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ml-100" id="navbarToggler">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a
+                class="nav-item nav-link active"
+                href="../../home_cpn/index.php"
+                >Trang chủ</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-item nav-link active"
+                href="../../../product/drugstore_cpn/drugstore.php"
+                >Nhà thuốc online</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div id="intro" class="d-flex flex-wrap pt-5 pb-5">
+        <div class="col-12 col-lg-4">
+          <h1 class="title-box">Thăm Khám Thai Sản Tại Nhà</h1>
+          <p class="text">
+            Thăm khám, chăm sóc toàn diện cho mẹ & bé trong suốt thai kì.
+          </p>
+          <p class="text">Giá Gốc 1.800.000 ₫</p>
+          <p class="price">1.500.000 ₫</p>
+          <button class="btn" style="background-color: #567fea; color: #fff">
+            Đặt hẹn khám ngay
+          </button>
+        </div>
+        <div class="col-12 col-lg-8 pt-4">
+          <img
+            src="../../../assets/maternity-image.svg"
+            alt=""
+            width="100%"
+            height="auto"
+          />
+        </div>
       </div>
-      <div id="menuRight">
-        <ul id="menu">
-          <li>
-            <a class="nav-link" href="../../home_cpn/index.html">Trang chủ</a>
-          </li>
-          <li>
-            <a class="nav-link" href="#">Đặt hẹn ngay</a>
-          </li>
-          <li>
-            <a class="nav-link" href="#">Tải ứng dụng</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="container">
-      <div class="card-service-background">
-        <div class="care-service-banner">
-          <div class="top-care-service-content">
-            <div class="inner">
-              <div class="go-back">
-                <a href="../../home_cpn/index.html#services">
-                  <i class="fa fa-chevron-left"></i>
-                  <span>Quay về mục dịch vụ</span>
-                </a>
-              </div>
-              <div class="title">
-                <h1>Thăm Khám Thai Sản Tại Nhà</h1>
-              </div>
-              <div class="sub-text">
-                <span
-                  >Thăm khám, chăm sóc toàn diện cho mẹ & bé trong suốt thai
-                  kì.</span
-                >
-              </div>
-              <div class="care-service-price">
-                <div class="col-left">
-                  <span class="price-original">
-                    Giá Gốc 1.800.000 ₫
-                  </span>
-                  <br />
-                  <span class="price">
-                    1.500.000 ₫
-                  </span>
+      <div id="doctor-box" class="pt-5 pb-5">
+        <h1 class="title-sub">Giới Thiệu Các Bác Sĩ Thai Sản của Chúng Tôi</h1>
+        <div class="row wrap justify-content-center w-100 m-0">
+          <?php while($row = mysqli_fetch_array($filter_result)) :?>
+          <div style="width: 250px; margin: 10px">
+            <div
+              style="
+                box-shadow: 0 2px 20px #ccd3e4;
+                border: none;
+                border-radius: 10px !important;
+              "
+            >
+              <img
+                class="card-img-top"
+                src="<?php echo $row['doctorAvatar']; ?>"
+                alt="Card image cap"
+                height="190"
+                style="
+                  object-fit: cover;
+                  border-top-left-radius: 10px !important;
+                  border-top-right-radius: 10px !important;
+                "
+              />
+              <div class="card-body d-flex flex-column justify-content-around">
+                <div>
+                  <div style="font-size: 18px; font-weight: 500">
+                    <?php echo $row['doctorName']; ?>
+                  </div>
+                  <div
+                    class="card-description"
+                    style="color: #777; margin-bottom: 10px"
+                  >
+                    <?php echo $row['description']; ?>
+                  </div>
                 </div>
-                <div class="col-right">
-                  <button class="btn btn-teal">
-                    Đặt Hẹn Khám Ngay
+                <div class="card-price text-center" style="color: #567fea">
+                  <i class="fa fa-heart"></i>
+                  <i class="fa fa-heart"></i>
+                  <i class="fa fa-heart"></i>
+                  <i class="fa fa-heart"></i>
+                  <i class="fa fa-heart"></i>
+                </div>
+                <div class="d-flex justify-content-around mt-3">
+                  <button
+                    type="button"
+                    class="btn"
+                    style="background-color: #567fea; color: #fff"
+                  >
+                    Hẹn tư vấn
+                  </button>
+                  <button type="button" class="btn btn-outline-info">
+                    Thông tin
                   </button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="banner-image">
+          <?php endwhile; ?>
+        </div>
+      </div>
+      <div id="info" class="p-5">
+        <h1 class="title-sub">Chăm Sóc Tiền Sản</h1>
+        <div class="d-flex flex-wrap justify-content-center w-100 m-0">
+          <div
+            class="card d-flex flex-column justify-content-between"
+            style="
+              width: 300px;
+              margin: 10px;
+              border-radius: 12px;
+              box-shadow: 0 2px 20px #ccd3e4;
+              border: none;
+            "
+          >
+            <div class="p-3">
+              <p class="box-title">Chăm Sóc Tiền Sản là gì?</p>
+              <p class="box-text">
+                Chăm Sóc Tiền Sản là một phần trọng yếu của sức khỏe sinh sản
+                bao gồm các xét nghiệm máu, việc kiểm tra thể chất, và trao đổi
+                thông tin thường xuyên với bác sĩ về sự phát triển của thai nhi
+                qua các thời kỳ.
+              </p>
+            </div>
             <img
-              src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-19-16-06-13/assets/images/care-service-background/maternity-image.svg"
+              src="../../../assets/background-card.svg"
               alt=""
+              width="100%"
+            />
+          </div>
+          <div
+            class="card d-flex flex-column justify-content-between"
+            style="
+              width: 300px;
+              margin: 10px;
+              border-radius: 12px;
+              box-shadow: 0 2px 20px #ccd3e4;
+              border: none;
+            "
+          >
+            <div class="p-3">
+              <p class="box-title">Vì sao Chăm Sóc Tiền Sản lại quan trọng?</p>
+              <p class="box-text">
+                Việc chăm sóc tiền sản cẩn thận đảm bảo nền tảng cho sự phát
+                triển khoẻ mạnh của bé về sau.
+              </p>
+            </div>
+            <img
+              src="../../../assets/background-card.svg"
+              alt=""
+              width="100%"
+            />
+          </div>
+          <div
+            class="card d-flex flex-column justify-content-between"
+            style="
+              width: 300px;
+              margin: 10px;
+              border-radius: 12px;
+              box-shadow: 0 2px 20px #ccd3e4;
+              border: none;
+            "
+          >
+            <div class="p-3">
+              <p class="box-title">
+                Bao Lâu thì nên thăm khám tiền sản một lần?
+              </p>
+              <p>
+                Mời bạn tham khảo lịch trình chăm sóc tiền sản tiêu chuẩn (cho
+                người khoẻ mạnh bình thường) cho phụ nữ từ 18 - 35 tuổi:
+              </p>
+              <ul class="pl-5">
+                <li>Trong 32 tuần đầu của thai kì: 4 tuần khám 1 lần</li>
+                <li>Từ tuần 32 - tuần 37 của thai kì: 1-2 tuần khám 1 lần</li>
+                <li>Từ tuần 37 đến khi sinh: khám hàng tuần</li>
+              </ul>
+            </div>
+            <img
+              src="../../../assets/background-card.svg"
+              alt=""
+              width="100%"
             />
           </div>
         </div>
-        <div class="common-conditions">
-          <div class="title-container">
-            <img
-              class="top"
-              src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-19-16-06-13/assets/icons/teal-plus-icon.svg"
-              alt=""
-            />
-            <h2 class="title">
-              Tổng Quát Về Khám Thai Sản Tại Nhà
-            </h2>
-            <img
-              class="bottom"
-              src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-19-16-06-13/assets/icons/teal-plus-icon.svg"
-              alt=""
-            />
-          </div>
-          <div class="info-container">
-            <div class="condition-name-button">
-              <img
-                src="https://jiohealth.com/assets/icons/check-white-icon.svg"
-                alt=""
-              />
-              <span>Kiểm tra Tiền Sử Bệnh Án</span>
-            </div>
-            <div class="condition-name-button">
-              <img
-                src="https://jiohealth.com/assets/icons/check-white-icon.svg"
-                alt=""
-              />
-              <span>Siêu Âm Màu Doppler</span>
-            </div>
-            <div class="condition-name-button">
-              <img
-                src="https://jiohealth.com/assets/icons/check-white-icon.svg"
-                alt=""
-              />
-              <span>Kiểm tra Cân Nặng, Huyết Áp và Sinh Hiệu</span>
-            </div>
-            <div class="condition-name-button">
-              <img
-                src="https://jiohealth.com/assets/icons/check-white-icon.svg"
-                alt=""
-              />
-              <span>Kiểm tra vị trí của thai nhi</span>
-            </div>
-            <div class="condition-name-button">
-              <img
-                src="https://jiohealth.com/assets/icons/check-white-icon.svg"
-                alt=""
-              />
-              <span>Kiểm tra độ tăng kích thước vòng bụng của mẹ</span>
-            </div>
-            <div class="condition-name-button">
-              <img
-                src="https://jiohealth.com/assets/icons/check-white-icon.svg"
-                alt=""
-              />
-              <span>Lập Phác Đồ Theo Dõi & Tư Vấn</span>
-            </div>
-            <div class="condition-name-button">
-              <img
-                src="https://jiohealth.com/assets/icons/check-white-icon.svg"
-                alt=""
-              />
-              <span
-                >Kiểm tra các dấu hiệu thai nghén như sốt vào buổi sáng, sưng
-                tấy, nhão ngực, và các biểu hiện khác</span
-              >
-            </div>
-          </div>
-        </div>
       </div>
-
-      <div class="meet-doctor">
-        <div class="meet-doctor-title">
-          <span>Giới Thiệu Các Bác Sĩ Thai Sản của Chúng Tôi</span>
-        </div>
-        <div class="meet-doctor-content row">
-          <div class="col">
-            <div class="card-doctor">
-              <div class="card-header">
-                <img
-                  src="https://jio-prod-sg.s3.ap-southeast-1.amazonaws.com/user-profile-image/84672/7065eee8-eba0-4e18-884a-02189d953d29?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200620T042916Z&X-Amz-SignedHeaders=host&X-Amz-Expires=27043&X-Amz-Credential=AKIAJXE3JAGP6DYWLLQA%2F20200620%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=6895cbefee1c8769e83d86127e41cf5bb597c65293ac2eb63a734b1bd1926c41"
-                  class="img-card"
-                  alt=""
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Lý Xuân Sơn</h5>
-                <p class="card-description">Sản / Phụ Khoa</p>
-                <p class="card-price">
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                </p>
-              </div>
-              <div class="card-hover">
-                <button type="button" class="btn btn-add">
-                  Hẹn bác sĩ đến nhà
-                </button>
-                <button type="button" class="btn btn-detail">
-                  Xem thông tin bác sĩ
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card-doctor">
-              <div class="card-header">
-                <img
-                  src="https://jio-prod-sg.s3.ap-southeast-1.amazonaws.com/user-profile-image/84774/b00f8407-7b5d-4166-ba3c-7fe0f67f15f0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200620T042916Z&X-Amz-SignedHeaders=host&X-Amz-Expires=27043&X-Amz-Credential=AKIAJXE3JAGP6DYWLLQA%2F20200620%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=1fc6a254da8eb2d0a6aaeb67a250b498a4313fd2e7429aef477e1033cb072784"
-                  class="img-card"
-                  alt=""
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Trương Thị Ái Hòa</h5>
-                <p class="card-description">Sản / Phụ Khoa</p>
-                <p class="card-price">
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                </p>
-              </div>
-              <div class="card-hover">
-                <button type="button" class="btn btn-add">
-                  Hẹn bác sĩ đến nhà
-                </button>
-                <button type="button" class="btn btn-detail">
-                  Xem thông tin bác sĩ
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card-doctor">
-              <div class="card-header">
-                <img
-                  src="https://jio-prod-sg.s3.ap-southeast-1.amazonaws.com/user-profile-image/84674/71e752a8-927f-48f2-a225-220ec24e6435?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200620T042916Z&X-Amz-SignedHeaders=host&X-Amz-Expires=27043&X-Amz-Credential=AKIAJXE3JAGP6DYWLLQA%2F20200620%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=3c956794558ae971462d63a0a912ad05c035592746d5ca5d301b78233fabc658"
-                  class="img-card"
-                  alt=""
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Nguyễn Thị Phương Thảo</h5>
-                <p class="card-description">Sản / Phụ Khoa</p>
-                <p class="card-price">
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                </p>
-              </div>
-              <div class="card-hover">
-                <button type="button" class="btn btn-add">
-                  Hẹn bác sĩ đến nhà
-                </button>
-                <button type="button" class="btn btn-detail">
-                  Xem thông tin bác sĩ
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card-doctor">
-              <div class="card-header">
-                <img
-                  src="https://jio-prod-sg.s3.ap-southeast-1.amazonaws.com/user-profile-image/84772/2dd8f327-9ae1-4b26-9248-ed8f553d40bf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200620T042916Z&X-Amz-SignedHeaders=host&X-Amz-Expires=27043&X-Amz-Credential=AKIAJXE3JAGP6DYWLLQA%2F20200620%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=5ebed01fe9619f26fefa1787326d0f8d544b8b71cae001bac2c4310bd22cb7ea"
-                  class="img-card"
-                  alt=""
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Đoàn Vũ Đại Nam</h5>
-                <p class="card-description">Sản / Phụ Khoa</p>
-                <p class="card-price">
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                  <i class="fa fa-heart"></i>
-                </p>
-              </div>
-              <div class="card-hover">
-                <button type="button" class="btn btn-add">
-                  Hẹn bác sĩ đến nhà
-                </button>
-                <button type="button" class="btn btn-detail">
-                  Xem thông tin bác sĩ
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="explain-block" style="padding: 20px 100px;">
-        <div class="explain-title">
-          <span>Chăm Sóc Tiền Sản</span>
-        </div>
-        <div class="explain-content row">
-          <div class="col ts">
-            <div class="card-explain">
-              <div class="explain-header">
-                <span>Chăm Sóc Tiền Sản là gì?</span>
-              </div>
-              <div class="explain-body">
-                <span
-                  >Chăm Sóc Tiền Sản là một phần trọng yếu của sức khỏe sinh sản
-                  bao gồm các xét nghiệm máu, việc kiểm tra thể chất, và trao
-                  đổi thông tin thường xuyên với bác sĩ về sự phát triển của
-                  thai nhi qua các thời kỳ.</span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col ts">
-            <div class="card-explain">
-              <div class="explain-header">
-                <span>Vì sao Chăm Sóc Tiền Sản lại quan trọng?</span>
-              </div>
-              <div class="explain-body">
-                <span
-                  >Việc chăm sóc tiền sản cẩn thận đảm bảo nền tảng cho sự phát
-                  triển khoẻ mạnh của bé về sau. Các bác sĩ sẽ thường xuyên theo
-                  dõi, đảm bảo thai nhi phát triển bình thường, ngăn chặn những
-                  nguy cơ có thể xảy ra, đồng thời giúp mẹ bầu cảm thấy dễ chịu
-                  hơn trước nhưng biến chuyển cơ thể.</span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col ts">
-            <div class="card-explain">
-              <div class="explain-header">
-                <span>Khi nào bạn cần bắt đầu khám tiền sản?</span>
-              </div>
-              <div class="explain-body">
-                <span
-                  >Bạn nên bắt đầu ngay khi bạn biết mình đang mang thai.</span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col ts">
-            <div class="card-explain">
-              <div class="explain-header">
-                <span>Bao Lâu thì nên thăm khám tiền sản một lần?</span>
-              </div>
-              <div class="explain-body">
-                <span
-                  >Lịch trình chăm sóc tiền sản sẽ phụ thuộc vào giai đoạn mang
-                  thai và nguy cơ biến chứng của từng người. <br />
-
-                  Mời bạn tham khảo lịch trình chăm sóc tiền sản tiêu chuẩn (cho
-                  người khoẻ mạnh bình thường) cho phụ nữ từ 18 - 35 tuổi:
-                  <br />
-
-                  + Trong 32 tuần đầu của thai kì: 4 tuần khám 1 lần <br />
-                  + Từ tuần 32 - tuần 37 của thai kì: 1-2 tuần khám 1 lần <br />
-                  + Từ tuần 37 đến khi sinh: khám hàng tuần</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="care-service-footer-container">
-        <div class="service-footer-container-title">
-          <span>Đặt lịch Thăm Khám tại nhà</span>
-        </div>
-        <div class="service-footer-container-content">
-          <button type="button" class="btn btn-add">
+    </div>
+    <div id="booking">
+      <div>
+        <span style="font-size: 25px; font-weight: bold; color: #fff"
+          >Đặt lịch thăm khám tại nhà</span
+        >
+        <div class="pt-3">
+          <button
+            type="button"
+            class="btn btn-outline-warning"
+            style="color: #fff"
+          >
             Liên hệ với chúng tôi
           </button>
-          <button type="button" class="btn btn-detail">
+          <button
+            type="button"
+            class="btn"
+            style="background-color: #567fea; color: #fff"
+          >
             Đặt hẹn ngay
           </button>
         </div>
       </div>
     </div>
     <footer>
-      <div style="padding: 40px; display: flex; align-items: center;">
-        <div class="box-footer col-4 col-s-6 col-xs-12">
+      <div class="container d-flex flex-wrap p-5">
+        <div class="col-lg-6 col-md-12">
           <div>
             <img
-              src="https://cdn.jiohealth.com/jio-website/home-page/jio-website-v2020-06-04-09-05-35/assets/images/logo.svg"
+              src="https://cdn.jiohealth.com/pharmacy/product/asset/images/navJioLogo@3x.png"
               alt="nhathuoc24h.com"
-              width="140px"
-              height="70px"
+              width="60px"
+              height="auto"
             />
           </div>
           <p>
             Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad
             eos obcaecati tenetur veritatis eveniet distinctio possimus.
           </p>
-          <ul id="contact-social">
-            <li>
-              <a href="#"><i class="fab fa-facebook-square"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-twitter-square"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </li>
-          </ul>
+          <div class="asocial d-flex">
+            <a href="#" class="m-1"><i class="fab fa-facebook-square"></i></a>
+            <a href="#" class="m-1"><i class="fab fa-twitter-square"></i></a>
+            <a href="#" class="m-1"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
-        <div class="box-footer col-4 col-s-6 col-xs-12">
-          <ul id="sub-menu-footer">
-            <li><a href="#">Tất cả</a></li>
-            <li><a href="#">Thuốc bán theo chỉ định</a></li>
-            <li><a href="#">Thuốc đặc trị</a></li>
-            <li><a href="#">Thực phẩm chức năng</a></li>
-            <li><a href="#">Dược mỹ phẩm</a></li>
-            <li><a href="#">Dụng cụ y tế</a></li>
-          </ul>
-        </div>
-        <div class="box-footer col-4 col-s-6 col-xs-12">
-          <h3><b>Get In Touch</b></h3>
-          <ul style="padding: 0px;">
-            <li>
-              <p>
-                <i class="fas fa-envelope-square pr-2"></i>Support Available for
-                24/7
-              </p>
-            </li>
-            <li><a href="#">Privacy Policy</a><b>Support@email.com</b></li>
-            <li>Mon to Fri : 08:30 - 18:00</li>
-            <li>
-              <a href="#"
-                ><b><i class="fas fa-phone pr-1"></i>+23-456-6588</b></a
-              >
-            </li>
-          </ul>
+        <div class="col-lg-6 col-md-12">
+          <h3><b>Liên lạc</b></h3>
+          <div>
+            <p>
+              <i class="fas fa-envelope-square pr-2"></i>Support Available for
+              24/7
+            </p>
+            <a href="#">Privacy Policy</a><b>Support@email.com</b>
+            <p>Mon to Fri : 08:30 - 18:00</p>
+            <a href="#"
+              ><b><i class="fas fa-phone pr-1"></i>+23-456-6588</b></a
+            >
+          </div>
         </div>
       </div>
     </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

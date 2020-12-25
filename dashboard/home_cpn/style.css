@@ -9,7 +9,7 @@ body {
   background-color: #f5f6fa;
   padding: 1rem;
   border-radius: 10px;
-  height: 295px;
+  min-width: 295px;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
 }
 .text {
@@ -48,9 +48,13 @@ body {
   flex-grow: 1;
   width: 200px;
   align-items: center;
-  justify-content: space-around;
-}
+  padding: 10px 1rem;
 
+  /* justify-content: space-around;  */
+}
+.boxService div {
+  margin: 0 0 0 1rem;
+}
 .boxPortfolio {
   background-color: #fff;
   border-radius: 10px;
