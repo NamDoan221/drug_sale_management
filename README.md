@@ -1,2 +1,2 @@
-# demo_web_bc
-báo cáo mã nguồn mở quản lý bán thuốc (PHP)
+# Nhóm 4
+D13CNPM7 - Quản lý bán thuốc.
