@@ -5,7 +5,7 @@
         $filter_result = filterTable($query);
     }
     else if (isset($_POST['1'])){
-      $query = "SELECT * FROM `product` WHERE type = 'thuocChiDinh'";
+      $query = "SELECT * FROM `product` WHERE type = 'dungCuYTe'";
       $filter_result = filterTable($query);
     }
     else if (isset($_POST['2'])){
@@ -21,7 +21,7 @@
       $filter_result = filterTable($query);
     }
     else if (isset($_POST['5'])){
-      $query = "SELECT * FROM `product` WHERE type = 'dungCuYTe'";
+      $query = "SELECT * FROM `product` WHERE type = 'thuocChiDinh'";
       $filter_result = filterTable($query);
     }
     else {
@@ -138,7 +138,7 @@
       </div>
     </nav>
     <div
-      class="mx-5 d-flex justify-content-center"
+      class="d-flex justify-content-center"
       style="
         margin-top: 70px;
         margin-bottom: 20px;

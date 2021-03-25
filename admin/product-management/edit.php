@@ -70,6 +70,7 @@
                         ><?php echo $row['description']; ?></textarea>
                     </div>
                     <button type="submit" name="edit" class="btn btn-primary mt-3 float-right">Lưu</button>
+                    <a href="./product-management.php" class="btn btn-danger mt-3 float-right mr-3">Trở về</a>
                     <?php
                         function uuid() {
                           return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
