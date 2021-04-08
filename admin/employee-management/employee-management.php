@@ -9,19 +9,13 @@
 
   if (isset($_POST['search'])){
     $key = $_POST['key'];
-    $query = "SELECT * FROM `product` WHERE name LIKE '%".$key."%'";
+    $query = "SELECT * FROM `employee` WHERE employee_name LIKE '%".$key."%'";
     $filter_result = filterTable($query);
   } else if(isset($_POST['sort_name'])) {
-    $query = "SELECT * FROM `product` ORDER BY name ASC";
-    $filter_result = filterTable($query);
-  } else if(isset($_POST['sort_price'])) {
-    $query = "SELECT * FROM `product` ORDER BY price ASC";
-    $filter_result = filterTable($query);
-  } else if(isset($_POST['sort_amount'])) {
-    $query = "SELECT * FROM `product` ORDER BY quanity ASC";
+    $query = "SELECT * FROM `employee` ORDER BY employee_name ASC";
     $filter_result = filterTable($query);
   } else {
-    $query = "SELECT * FROM `product`";
+    $query = "SELECT * FROM `employee`";
     $filter_result = filterTable($query);
   }
   function filterTable($query) {
@@ -36,7 +30,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quản lý sản phẩm</title>
+    <title>Quản lý nhân viên</title>
     <link rel="stylesheet" href="product-management.css" />
     <link
       rel="stylesheet"
@@ -65,20 +59,14 @@
                       <li class="nav-item active">
                           <button class="btn btn-light nav-item nav-link active" type="submit" name="sort_name">Sắp xếp theo tên</button>
                       </li>
-                      <li class="nav-item ml-2">
-                          <button class="btn btn-light nav-item nav-link active" type="submit" name="sort_price">Sắp xếp theo giá</button>
-                      </li>
-                      <li class="nav-item ml-2">
-                          <button class="btn btn-light nav-item nav-link active" type="submit" name="sort_amount">Sắp xếp số lượng</button>
-                      </li>
                     </form>
                     <li class="nav-item ml-2">
-                        <a class="btn btn-light nav-item nav-link active" href="../product-management/edit.php">Thêm sản phẩm</a>
+                        <a class="btn btn-light nav-item nav-link active" href="../employee-management/edit.php">Thêm nhân viên</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item mr-2">
-                        <a class="btn btn-light nav-item nav-link active" href="../employee-management/employee-management.php">Quản lý nhân viên</a>
+                        <a class="btn btn-light nav-item nav-link active" href="../product-management/product-management.php">Quản lý sản phẩm</a>
                     </li>
                     <form class="form-inline my-2 my-lg-0" method="POST">
                       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="key">
@@ -91,25 +79,25 @@
       <table class="table table-hover mt-5 table-active">
         <thead>
           <tr>
-            <th >Mã SP</th>
-            <th >Ảnh sản phẩm</th>
-            <th >Tên sản phẩm</th>
-            <th >Giá sản xuất</th>
-            <th >Số lượng còn lại trong kho</th>
+            <th >Mã NV</th>
+            <th >Ảnh nhân viên</th>
+            <th >Tên nhân viên</th>
+            <th >Địa chỉ nhân viên</th>
+            <th >Chức vụ</th>
             <th >Thao tác</th>
           </tr>
         </thead>
         <tbody>
           <?php while($row = mysqli_fetch_array($filter_result)) :?>
             <tr>
-              <th scope="row"><?php echo $row['id_product']; ?></th>
-              <td><img class="" src="<?php echo $row['image']; ?>" alt="Card image cap" height="102" width="102"></td>
-              <td><?php echo $row['name']; ?></td>
-              <td><?php echo $row['price']; ?></td>
-              <td><?php echo $row['quanity']; ?></td>
+              <th scope="row"><?php echo $row['id_employee']; ?></th>
+              <td><img class="" src="<?php echo $row['employee_avatar']; ?>" alt="Card image cap" height="102" width="102"></td>
+              <td><?php echo $row['employee_name']; ?></td>
+              <td><?php echo $row['employee_address']; ?></td>
+              <td><?php echo $row['employee_position']; ?></td>
               <td>
-                <a href="../product-management/edit.php?id=<?php echo $row['id_product']; ?>" class="btn btn-primary">Sửa</a>
-                <a href="./delete.php?id=<?php echo $row['id_product']; ?>" class="btn btn-danger" onClick="return confirm('Ban co muon xoa san pham nay ko?')">Xóa</a>
+                <a href="../employee-management/edit.php?id=<?php echo $row['id_employee']; ?>" class="btn btn-primary">Sửa</a>
+                <a href="./delete.php?id=<?php echo $row['id_employee']; ?>" class="btn btn-danger" onClick="return confirm('Ban co muon xoa nhân viên nay ko?')">Xóa</a>
               </td>
             </tr>
          <?php endwhile; ?> 

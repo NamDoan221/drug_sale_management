@@ -5,7 +5,7 @@
     echo '<script language="javascript">window.location="../../user/login.php";</script>';
   }
   $id = $_GET['id'];
-  $query = mysqli_query($conn, "SELECT * FROM `product` WHERE id_product = '$id'");
+  $query = mysqli_query($conn, "SELECT * FROM `employee` WHERE id_employee = '$id'");
   $row = mysqli_fetch_assoc($query);
 ?>
 
@@ -28,7 +28,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light px-5">
-      <a class="navbar-brand" href="../product-management/product-management.php">
+      <a class="navbar-brand" href="../employee-management/employee-management.php">
           <img src="https://cdn.jiohealth.com/pharmacy/product/asset/images/navJioLogo@3x.png" alt="nhathuoc24h.com"
               width="60px" height="40px" />
       </a>
@@ -40,7 +40,7 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                <a class="nav-item nav-link active" href="../product-management/product-management.php">Admin</a>
+                <a class="nav-item nav-link active" href="../employee-management/employee-management.php">Admin</a>
               </li>
           </ul>
       </div>
@@ -50,27 +50,22 @@
                 <form method="POST">
                     <div class="form-group">
                         <label for="image">Link Ảnh</label>
-                        <input class="form-control" type="text" id="image" name="image" value="<?php echo $row['image']; ?>" />
+                        <input class="form-control" type="text" id="image" name="image" value="<?php echo $row['employee_avatar']; ?>" />
                     </div>
                     <div class="form-group">
                         <label for="name">Tên</label>
-                        <input class="form-control" type="text" id="name" name="name" value="<?php echo $row['name']; ?>" />
+                        <input class="form-control" type="text" id="name" name="name" value="<?php echo $row['employee_name']; ?>" />
                     </div>
                 	<div class="form-group">
-                        <label for="price">Giá</label>
-                        <input class="form-control" type="text" id="price" name="price" value="<?php echo $row['price']; ?>" />
+                        <label for="address">Địa chỉ</label>
+                        <input class="form-control" type="text" id="address" name="address" value="<?php echo $row['employee_address']; ?>" />
                     </div>
                     <div class="form-group">
-                        <label for="quanity">Số lượng</label>
-                        <input class="form-control" type="text" id="quanity" name="quanity" value="<?php echo $row['quanity']; ?>" />
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Mô tả</label>
-                        <textarea class="form-control" id="description" aria-label="With textarea" name="description" 
-                        ><?php echo $row['description']; ?></textarea>
+                        <label for="position">Chức vụ</label>
+                        <input class="form-control" type="text" id="position" name="position" value="<?php echo $row['employee_position']; ?>" />
                     </div>
                     <button type="submit" name="edit" class="btn btn-primary mt-3 float-right">Lưu</button>
-                    <a href="./product-management.php" class="btn btn-danger mt-3 float-right mr-3">Trở về</a>
+                    <a href="./employee-management.php" class="btn btn-danger mt-3 float-right mr-3">Trở về</a>
                     <?php
                         function uuid() {
                           return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
@@ -84,25 +79,24 @@
                         if (isset($_POST['edit'])){
                             $image=$_POST['image'];
                             $name=$_POST['name'];
-                            $price=$_POST['price'];
-                            $quanity=$_POST['quanity']; 
-                            $description=$_POST['description']; 
-                            if (!$image || !$name || !$price || !$quanity || !$description) {
+                            $address=$_POST['address'];
+                            $position=$_POST['position']; 
+                            if (!$image || !$name || !$address || !$position) {
                                 echo '<span class="text-danger d-block mt-3">Vui lòng nhập đầy đủ thông tin.</span>';
                                 exit;
                             }
                             if ($id) {
-                              $sql = "UPDATE `product` SET `name`='$name',`price`='$price',`image`='$image',`quanity`='$quanity',`description`='$description' WHERE id_product = '$id'";
+                              $sql = "UPDATE `employee` SET `employee_name`='$name',`employee_address`='$address',`employee_avatar`='$image',`employee_position`='$position' WHERE id_employee = '$id'";
                             } else {
                               $id_create = uuid();
-                              $sql = "INSERT INTO `product`(`id_product`, `name`, `price`, `image`, `quanity`, `description`) VALUES ('$id_create','$name','$price','$image','$quanity','$description')";
+                              $sql = "INSERT INTO `employee`(`id_employee`, `employee_name`, `employee_address`, `employee_avatar`, `employee_position`) VALUES ('$id_create','$name','$address','$image','$position')";
                             }
                             $kt = mysqli_query($conn, $sql);
                             if ($kt != TRUE) {
                                 echo '<span class="text-danger d-block mt-3">Lỗi. Vui lòng kiểm tra lại.</span>';
                                 exit;
                             }
-                            echo '<script language="javascript">alert("Thao tac thanh cong!");window.location="../product-management/product-management.php";</script>';
+                            echo '<script language="javascript">alert("Thao tac thanh cong!");window.location="../employee-management/employee-management.php";</script>';
                         }
                     ?>
                     <?php
