@@ -4,7 +4,7 @@
     echo '<script language="javascript">window.location="../../user/login.php";</script>';
   }
   if($_SESSION['user_detail']->permission != 'admin') {
-    echo '<script language="javascript">window.location="../../dashboard/home_cpn/index.php";alert("Ban khong co quyen truy cap chuc nang nay!");</script>';
+    echo '<script language="javascript">window.location="../../dashboard/home_cpn/index.php";alert("Bạn không có quyền truy cập chức năng này!");</script>';
   }
 
   if (isset($_POST['search'])){
@@ -81,7 +81,7 @@
                         <a class="btn btn-light nav-item nav-link active" href="../employee-management/employee-management.php">Quản lý nhân viên</a>
                     </li>
                     <form class="form-inline my-2 my-lg-0" method="POST">
-                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="key">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm..." aria-label="Search" name="key">
                       <button name="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
                     </form>  
                 </ul>
@@ -109,7 +109,7 @@
               <td><?php echo number_format($row['quanity']); ?></td>
               <td>
                 <a href="../product-management/edit.php?id=<?php echo $row['id_product']; ?>" class="btn btn-primary">Sửa</a>
-                <a href="./delete.php?id=<?php echo $row['id_product']; ?>" class="btn btn-danger" onClick="return confirm('Ban co muon xoa san pham nay ko?')">Xóa</a>
+                <a href="./delete.php?id=<?php echo $row['id_product']; ?>" class="btn btn-danger" onClick="return confirm('Bạn có muốn xoá sản phẩm này không?')">Xóa</a>
               </td>
             </tr>
          <?php endwhile; ?> 

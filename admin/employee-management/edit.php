@@ -96,7 +96,7 @@
                                 echo '<span class="text-danger d-block mt-3">Lỗi. Vui lòng kiểm tra lại.</span>';
                                 exit;
                             }
-                            echo '<script language="javascript">alert("Thao tac thanh cong!");window.location="../employee-management/employee-management.php";</script>';
+                            echo '<script language="javascript">alert("Thao tác thành công!");window.location="../employee-management/employee-management.php";</script>';
                         }
                     ?>
                     <?php

@@ -115,7 +115,7 @@
             <input
               class="form-control mr-sm-2"
               type="search"
-              placeholder="Search"
+              placeholder="Tìm kiếm..."
               aria-label="Search"
               name="key"
             />
@@ -125,7 +125,7 @@
               class="btn btn-outline-success my-2 my-sm-0"
               type="submit"
             >
-              Search
+              Tìm kiếm
             </button>
           </form>
           <li class="nav-item active mx-4">
@@ -171,8 +171,7 @@
                 >
                 <p class="card-text text-danger">
                   <?php 
-                    $number = $row['price'];
-                    echo number_format($number); 
+                    echo number_format($row['price']); 
                   ?> VNĐ
                 </p>
               </div>

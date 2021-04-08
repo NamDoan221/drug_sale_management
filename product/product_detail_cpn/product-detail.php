@@ -100,8 +100,8 @@
             <i class="fas fa-star"></i>
           </div>
           <p class="text-danger">
-            <?php echo $row['price']; ?>
-            vnd
+            <?php echo number_format($row['price']); ?>
+             VNĐ
           </p>
         </div>
         <div role="group" aria-label="First group">
