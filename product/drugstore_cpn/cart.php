@@ -142,8 +142,8 @@ filterTable($query); } } function filterTable($query) { require
                 $id = $row['id_product'];
                 $query = mysqli_query($conn, "SELECT * FROM `cart_product` WHERE id_user = '$id_user' AND id_product = '$id'");
                 $product = mysqli_fetch_assoc($query);
-                echo $row['amount']*$row['price'];
-              ?>
+                echo number_format($row['amount']*$row['price']);
+              ?> VNĐ
             </td>
             <td>
               <a

@@ -170,7 +170,10 @@
                   ><?php echo $row['description']; ?></span
                 >
                 <p class="card-text text-danger">
-                  <?php echo $row['price']; ?>
+                  <?php 
+                    $number = $row['price'];
+                    echo number_format($number); 
+                  ?> VNĐ
                 </p>
               </div>
               <div class="d-flex justify-content-around mt-3">

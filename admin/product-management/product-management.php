@@ -105,8 +105,8 @@
               <th scope="row"><?php echo $row['id_product']; ?></th>
               <td><img class="" src="<?php echo $row['image']; ?>" alt="Card image cap" height="102" width="102"></td>
               <td><?php echo $row['name']; ?></td>
-              <td><?php echo $row['price']; ?></td>
-              <td><?php echo $row['quanity']; ?></td>
+              <td><?php echo number_format($row['price']); ?> VNĐ</td>
+              <td><?php echo number_format($row['quanity']); ?></td>
               <td>
                 <a href="../product-management/edit.php?id=<?php echo $row['id_product']; ?>" class="btn btn-primary">Sửa</a>
                 <a href="./delete.php?id=<?php echo $row['id_product']; ?>" class="btn btn-danger" onClick="return confirm('Ban co muon xoa san pham nay ko?')">Xóa</a>
